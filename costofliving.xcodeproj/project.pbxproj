@@ -21,11 +21,11 @@
 		FFC69080133F714600D91EBE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FFC69082133F714600D91EBE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FFC69084133F714600D91EBE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		FFC69088133F714600D91EBE /* costofliving-Info.plist */ = {isa = PBXFileReference; path = "costofliving-Info.plist"; sourceTree = "<group>"; };
+		FFC69088133F714600D91EBE /* costofliving-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "costofliving-Info.plist"; sourceTree = "<group>"; };
 		FFC6908A133F714600D91EBE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		FFC6908C133F714600D91EBE /* costofliving-Prefix.pch */ = {isa = PBXFileReference; path = "costofliving-Prefix.pch"; sourceTree = "<group>"; };
+		FFC6908C133F714600D91EBE /* costofliving-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "costofliving-Prefix.pch"; sourceTree = "<group>"; };
 		FFC6908D133F714600D91EBE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		FFC6908F133F714600D91EBE /* costoflivingAppDelegate.h */ = {isa = PBXFileReference; path = costoflivingAppDelegate.h; sourceTree = "<group>"; };
+		FFC6908F133F714600D91EBE /* costoflivingAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = costoflivingAppDelegate.h; sourceTree = "<group>"; };
 		FFC69090133F714600D91EBE /* costoflivingAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = costoflivingAppDelegate.m; sourceTree = "<group>"; };
 		FFC69093133F714700D91EBE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,10 +74,10 @@
 		FFC69086133F714600D91EBE /* costofliving */ = {
 			isa = PBXGroup;
 			children = (
+				FFC69087133F714600D91EBE /* Supporting Files */,
 				FFC6908F133F714600D91EBE /* costoflivingAppDelegate.h */,
 				FFC69090133F714600D91EBE /* costoflivingAppDelegate.m */,
 				FFC69092133F714700D91EBE /* MainWindow.xib */,
-				FFC69087133F714600D91EBE /* Supporting Files */,
 			);
 			path = costofliving;
 			sourceTree = "<group>";

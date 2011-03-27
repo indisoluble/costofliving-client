@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface costoflivingAppDelegate : NSObject <UIApplicationDelegate> {
-
+    UITabBarController *_tabBarController;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
+
+@property (nonatomic, retain) UITabBarController *tabBarController;
 
 @end

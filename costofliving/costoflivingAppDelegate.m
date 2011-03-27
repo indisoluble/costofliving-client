@@ -11,11 +11,38 @@
 @implementation costoflivingAppDelegate
 
 
-@synthesize window=_window;
+#pragma mark -
+#pragma mark Synthesized properties
+@synthesize window = _window;
+@synthesize tabBarController = _taBarController;
 
+
+#pragma mark -
+#pragma mark UIApplicationDelegate methods
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    // Initialize tabBarController
+    self.tabBarController = [[[UITabBarController alloc] init] autorelease];
+    
+    // Tab to create and list own notes
+    UINavigationController *createNotesNavController = [[[UINavigationController alloc] init] autorelease];
+    createNotesNavController.title = @"Self";
+    
+    // Tab to check prices
+    UINavigationController *checkPricesNavController = [[[UINavigationController alloc] init] autorelease];
+    checkPricesNavController.title = @"Prices";
+    
+    // Tab to read news
+    UINavigationController *readNewsNavController = [[[UINavigationController alloc] init] autorelease];
+    readNewsNavController.title = @"News";
+    
+    // Adds tabs to tabBarController
+    NSArray *viewControllers = [NSArray arrayWithObjects:createNotesNavController, checkPricesNavController, readNewsNavController, nil];
+    self.tabBarController.viewControllers = viewControllers;
+    
+    // Show tabs
+    [self.window addSubview:self.tabBarController.view];
+
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -59,8 +86,13 @@
      */
 }
 
+
+#pragma mark -
+#pragma mark Memory management
 - (void)dealloc
 {
+    self.tabBarController = nil;
+    
     [_window release];
     [super dealloc];
 }
