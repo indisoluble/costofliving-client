@@ -8,6 +8,8 @@
 
 #import "costoflivingAppDelegate.h"
 #import "ReadNewsViewController.h"
+#import "CreateNoteViewController.h"
+#import "CheckPricesViewController.h"
 
 
 @implementation costoflivingAppDelegate
@@ -26,11 +28,13 @@
     
     // Tab to create and list own notes
     UINavigationController *createNotesNavController = [[[UINavigationController alloc] init] autorelease];
-    createNotesNavController.title = @"Self";
+    CreateNoteViewController *createNoteViewController = [[[CreateNoteViewController alloc] init] autorelease];
+    [createNotesNavController pushViewController:createNoteViewController animated:NO];
     
     // Tab to check prices
     UINavigationController *checkPricesNavController = [[[UINavigationController alloc] init] autorelease];
-    checkPricesNavController.title = @"Prices";
+    CheckPricesViewController *checkPricesViewController = [[[CheckPricesViewController alloc] initWithStyle:UITableViewStylePlain] autorelease];
+    [checkPricesNavController pushViewController:checkPricesViewController animated:NO];
     
     // Tab to read news
     UINavigationController *readNewsNavController = [[[UINavigationController alloc] init] autorelease];

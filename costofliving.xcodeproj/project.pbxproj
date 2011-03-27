@@ -16,6 +16,34 @@
 		FF574154133F76CF00E0735C /* NSString+XMLEntities.m in Sources */ = {isa = PBXBuildFile; fileRef = FF57414D133F76CF00E0735C /* NSString+XMLEntities.m */; };
 		FF574157133F773600E0735C /* ReadNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF574156133F773600E0735C /* ReadNewsViewController.m */; };
 		FF574188133F97DC00E0735C /* DetailNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF574187133F97DC00E0735C /* DetailNewsViewController.m */; };
+		FF64EAA1133FBF520075E97F /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FF64EAA0133FBF520075E97F /* libxml2.2.dylib */; };
+		FF64EAF3133FBF8C0075E97F /* HRBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = FF64EAB3133FBF8C0075E97F /* HRBase64.m */; };
+		FF64EAF4133FBF8C0075E97F /* HRFormatJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = FF64EAB6133FBF8C0075E97F /* HRFormatJSON.m */; };
+		FF64EAF5133FBF8C0075E97F /* HRFormatXML.m in Sources */ = {isa = PBXBuildFile; fileRef = FF64EAB8133FBF8C0075E97F /* HRFormatXML.m */; };
+		FF64EAF6133FBF8C0075E97F /* NSDictionary+ParamUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = FF64EABA133FBF8C0075E97F /* NSDictionary+ParamUtils.m */; };
+		FF64EAF7133FBF8C0075E97F /* NSString+EscapingUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = FF64EABC133FBF8C0075E97F /* NSString+EscapingUtils.m */; };
+		FF64EAF8133FBF8C0075E97F /* NSObject+InvocationUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = FF64EABE133FBF8C0075E97F /* NSObject+InvocationUtils.m */; };
+		FF64EAF9133FBF8C0075E97F /* HRRestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FF64EAA9133FBF8C0075E97F /* HRRestModel.m */; };
+		FF64EAFA133FBF8C0075E97F /* HRRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = FF64EAAB133FBF8C0075E97F /* HRRequestOperation.m */; };
+		FF64EAFB133FBF8C0075E97F /* HROperationQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = FF64EAB0133FBF8C0075E97F /* HROperationQueue.m */; };
+		FF64EAFC133FBF8C0075E97F /* HRGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = FF64EAB1133FBF8C0075E97F /* HRGlobal.m */; };
+		FF64EAFD133FBF8C0075E97F /* DDXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = FF64EAC5133FBF8C0075E97F /* DDXMLDocument.m */; };
+		FF64EAFE133FBF8C0075E97F /* DDXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = FF64EAC7133FBF8C0075E97F /* DDXMLElement.m */; };
+		FF64EAFF133FBF8C0075E97F /* DDXMLElementAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FF64EAC9133FBF8C0075E97F /* DDXMLElementAdditions.m */; };
+		FF64EB00133FBF8C0075E97F /* DDXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = FF64EACB133FBF8C0075E97F /* DDXMLNode.m */; };
+		FF64EB01133FBF8C0075E97F /* NSStringAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FF64EACE133FBF8C0075E97F /* NSStringAdditions.m */; };
+		FF64EB02133FBF8C0075E97F /* AIXMLDocumentSerialize.m in Sources */ = {isa = PBXBuildFile; fileRef = FF64EAD0133FBF8C0075E97F /* AIXMLDocumentSerialize.m */; };
+		FF64EB03133FBF8C0075E97F /* AIXMLElementSerialize.m in Sources */ = {isa = PBXBuildFile; fileRef = FF64EAD2133FBF8C0075E97F /* AIXMLElementSerialize.m */; };
+		FF64EB04133FBF8C0075E97F /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = FF64EAD5133FBF8C0075E97F /* SBJsonBase.m */; };
+		FF64EB05133FBF8C0075E97F /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = FF64EAD7133FBF8C0075E97F /* SBJsonParser.m */; };
+		FF64EB06133FBF8C0075E97F /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = FF64EAD9133FBF8C0075E97F /* SBJsonWriter.m */; };
+		FF64EB07133FBF8C0075E97F /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = FF64EADC133FBF8C0075E97F /* NSObject+SBJSON.m */; };
+		FF64EB08133FBF8C0075E97F /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = FF64EADE133FBF8C0075E97F /* NSString+SBJSON.m */; };
+		FF64EB09133FBF8C0075E97F /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = FF64EAE0133FBF8C0075E97F /* SBJSON.m */; };
+		FF64EB1A133FD4390075E97F /* CreateNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF64EB18133FD4390075E97F /* CreateNoteViewController.m */; };
+		FF64EB1B133FD4390075E97F /* CreateNoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF64EB19133FD4390075E97F /* CreateNoteViewController.xib */; };
+		FF64EB24133FDA4B0075E97F /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = FF64EB23133FDA4A0075E97F /* Product.m */; };
+		FF64EB2F133FE5330075E97F /* CheckPricesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF64EB2E133FE5320075E97F /* CheckPricesViewController.m */; };
 		FFC69081133F714600D91EBE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFC69080133F714600D91EBE /* UIKit.framework */; };
 		FFC69083133F714600D91EBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFC69082133F714600D91EBE /* Foundation.framework */; };
 		FFC69085133F714600D91EBE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFC69084133F714600D91EBE /* CoreGraphics.framework */; };
@@ -46,6 +74,68 @@
 		FF574156133F773600E0735C /* ReadNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadNewsViewController.m; sourceTree = "<group>"; };
 		FF574186133F97DC00E0735C /* DetailNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailNewsViewController.h; sourceTree = "<group>"; };
 		FF574187133F97DC00E0735C /* DetailNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailNewsViewController.m; sourceTree = "<group>"; };
+		FF64EAA0133FBF520075E97F /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
+		FF64EAA7133FBF8C0075E97F /* HTTPRiot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPRiot.h; sourceTree = "<group>"; };
+		FF64EAA8133FBF8C0075E97F /* HRRestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRRestModel.h; sourceTree = "<group>"; };
+		FF64EAA9133FBF8C0075E97F /* HRRestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRRestModel.m; sourceTree = "<group>"; };
+		FF64EAAA133FBF8C0075E97F /* HRRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRRequestOperation.h; sourceTree = "<group>"; };
+		FF64EAAB133FBF8C0075E97F /* HRRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRRequestOperation.m; sourceTree = "<group>"; };
+		FF64EAAC133FBF8C0075E97F /* HTTPRiot_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPRiot_Prefix.pch; sourceTree = "<group>"; };
+		FF64EAAD133FBF8C0075E97F /* HRGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRGlobal.h; sourceTree = "<group>"; };
+		FF64EAAE133FBF8C0075E97F /* HRResponseDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRResponseDelegate.h; sourceTree = "<group>"; };
+		FF64EAAF133FBF8C0075E97F /* HROperationQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HROperationQueue.h; sourceTree = "<group>"; };
+		FF64EAB0133FBF8C0075E97F /* HROperationQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HROperationQueue.m; sourceTree = "<group>"; };
+		FF64EAB1133FBF8C0075E97F /* HRGlobal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRGlobal.m; sourceTree = "<group>"; };
+		FF64EAB2133FBF8C0075E97F /* HRBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRBase64.h; sourceTree = "<group>"; };
+		FF64EAB3133FBF8C0075E97F /* HRBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRBase64.m; sourceTree = "<group>"; };
+		FF64EAB4133FBF8C0075E97F /* HRFormatterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRFormatterProtocol.h; sourceTree = "<group>"; };
+		FF64EAB5133FBF8C0075E97F /* HRFormatJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRFormatJSON.h; sourceTree = "<group>"; };
+		FF64EAB6133FBF8C0075E97F /* HRFormatJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRFormatJSON.m; sourceTree = "<group>"; };
+		FF64EAB7133FBF8C0075E97F /* HRFormatXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRFormatXML.h; sourceTree = "<group>"; };
+		FF64EAB8133FBF8C0075E97F /* HRFormatXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRFormatXML.m; sourceTree = "<group>"; };
+		FF64EAB9133FBF8C0075E97F /* NSDictionary+ParamUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+ParamUtils.h"; sourceTree = "<group>"; };
+		FF64EABA133FBF8C0075E97F /* NSDictionary+ParamUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+ParamUtils.m"; sourceTree = "<group>"; };
+		FF64EABB133FBF8C0075E97F /* NSString+EscapingUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+EscapingUtils.h"; sourceTree = "<group>"; };
+		FF64EABC133FBF8C0075E97F /* NSString+EscapingUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+EscapingUtils.m"; sourceTree = "<group>"; };
+		FF64EABD133FBF8C0075E97F /* NSObject+InvocationUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+InvocationUtils.h"; sourceTree = "<group>"; };
+		FF64EABE133FBF8C0075E97F /* NSObject+InvocationUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+InvocationUtils.m"; sourceTree = "<group>"; };
+		FF64EAC3133FBF8C0075E97F /* DDXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXML.h; sourceTree = "<group>"; };
+		FF64EAC4133FBF8C0075E97F /* DDXMLDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLDocument.h; sourceTree = "<group>"; };
+		FF64EAC5133FBF8C0075E97F /* DDXMLDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLDocument.m; sourceTree = "<group>"; };
+		FF64EAC6133FBF8C0075E97F /* DDXMLElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLElement.h; sourceTree = "<group>"; };
+		FF64EAC7133FBF8C0075E97F /* DDXMLElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLElement.m; sourceTree = "<group>"; };
+		FF64EAC8133FBF8C0075E97F /* DDXMLElementAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLElementAdditions.h; sourceTree = "<group>"; };
+		FF64EAC9133FBF8C0075E97F /* DDXMLElementAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLElementAdditions.m; sourceTree = "<group>"; };
+		FF64EACA133FBF8C0075E97F /* DDXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLNode.h; sourceTree = "<group>"; };
+		FF64EACB133FBF8C0075E97F /* DDXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLNode.m; sourceTree = "<group>"; };
+		FF64EACC133FBF8C0075E97F /* DDXMLPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLPrivate.h; sourceTree = "<group>"; };
+		FF64EACD133FBF8C0075E97F /* NSStringAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStringAdditions.h; sourceTree = "<group>"; };
+		FF64EACE133FBF8C0075E97F /* NSStringAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringAdditions.m; sourceTree = "<group>"; };
+		FF64EACF133FBF8C0075E97F /* AIXMLDocumentSerialize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIXMLDocumentSerialize.h; sourceTree = "<group>"; };
+		FF64EAD0133FBF8C0075E97F /* AIXMLDocumentSerialize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIXMLDocumentSerialize.m; sourceTree = "<group>"; };
+		FF64EAD1133FBF8C0075E97F /* AIXMLElementSerialize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIXMLElementSerialize.h; sourceTree = "<group>"; };
+		FF64EAD2133FBF8C0075E97F /* AIXMLElementSerialize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIXMLElementSerialize.m; sourceTree = "<group>"; };
+		FF64EAD3133FBF8C0075E97F /* AIXMLSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIXMLSerialization.h; sourceTree = "<group>"; };
+		FF64EAD4133FBF8C0075E97F /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
+		FF64EAD5133FBF8C0075E97F /* SBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonBase.m; sourceTree = "<group>"; };
+		FF64EAD6133FBF8C0075E97F /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		FF64EAD7133FBF8C0075E97F /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		FF64EAD8133FBF8C0075E97F /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		FF64EAD9133FBF8C0075E97F /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		FF64EADA133FBF8C0075E97F /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
+		FF64EADB133FBF8C0075E97F /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
+		FF64EADC133FBF8C0075E97F /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
+		FF64EADD133FBF8C0075E97F /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
+		FF64EADE133FBF8C0075E97F /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBJSON.m"; sourceTree = "<group>"; };
+		FF64EADF133FBF8C0075E97F /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
+		FF64EAE0133FBF8C0075E97F /* SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJSON.m; sourceTree = "<group>"; };
+		FF64EB17133FD4390075E97F /* CreateNoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateNoteViewController.h; sourceTree = "<group>"; };
+		FF64EB18133FD4390075E97F /* CreateNoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateNoteViewController.m; sourceTree = "<group>"; };
+		FF64EB19133FD4390075E97F /* CreateNoteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateNoteViewController.xib; sourceTree = "<group>"; };
+		FF64EB22133FDA4A0075E97F /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
+		FF64EB23133FDA4A0075E97F /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
+		FF64EB2D133FE5320075E97F /* CheckPricesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckPricesViewController.h; sourceTree = "<group>"; };
+		FF64EB2E133FE5320075E97F /* CheckPricesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckPricesViewController.m; sourceTree = "<group>"; };
 		FFC6907C133F714600D91EBE /* costofliving.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = costofliving.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFC69080133F714600D91EBE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FFC69082133F714600D91EBE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -64,6 +154,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF64EAA1133FBF520075E97F /* libxml2.2.dylib in Frameworks */,
 				FFC69081133F714600D91EBE /* UIKit.framework in Frameworks */,
 				FFC69083133F714600D91EBE /* Foundation.framework in Frameworks */,
 				FFC69085133F714600D91EBE /* CoreGraphics.framework in Frameworks */,
@@ -76,6 +167,7 @@
 		FF5740BF133F768B00E0735C /* Externals */ = {
 			isa = PBXGroup;
 			children = (
+				FF64E950133FBEB60075E97F /* httpriot */,
 				FF5740C1133F76B500E0735C /* MWFeedParser */,
 			);
 			name = Externals;
@@ -138,6 +230,133 @@
 			name = Depreciated;
 			sourceTree = "<group>";
 		};
+		FF64E950133FBEB60075E97F /* httpriot */ = {
+			isa = PBXGroup;
+			children = (
+				FF64EAA2133FBF8C0075E97F /* HTTPRiot */,
+				FF64EAA3133FBF8C0075E97F /* Vendor */,
+			);
+			path = httpriot;
+			sourceTree = SOURCE_ROOT;
+		};
+		FF64EAA2133FBF8C0075E97F /* HTTPRiot */ = {
+			isa = PBXGroup;
+			children = (
+				FF64EAA4133FBF8C0075E97F /* Utilities */,
+				FF64EAA5133FBF8C0075E97F /* Formatters */,
+				FF64EAA6133FBF8C0075E97F /* Extensions */,
+				FF64EAA7133FBF8C0075E97F /* HTTPRiot.h */,
+				FF64EAA8133FBF8C0075E97F /* HRRestModel.h */,
+				FF64EAA9133FBF8C0075E97F /* HRRestModel.m */,
+				FF64EAAA133FBF8C0075E97F /* HRRequestOperation.h */,
+				FF64EAAB133FBF8C0075E97F /* HRRequestOperation.m */,
+				FF64EAAC133FBF8C0075E97F /* HTTPRiot_Prefix.pch */,
+				FF64EAAD133FBF8C0075E97F /* HRGlobal.h */,
+				FF64EAAE133FBF8C0075E97F /* HRResponseDelegate.h */,
+				FF64EAAF133FBF8C0075E97F /* HROperationQueue.h */,
+				FF64EAB0133FBF8C0075E97F /* HROperationQueue.m */,
+				FF64EAB1133FBF8C0075E97F /* HRGlobal.m */,
+			);
+			name = HTTPRiot;
+			path = Source/HTTPRiot;
+			sourceTree = "<group>";
+		};
+		FF64EAA3133FBF8C0075E97F /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				FF64EABF133FBF8C0075E97F /* KissXML */,
+				FF64EAC0133FBF8C0075E97F /* AIXMLSerialization */,
+				FF64EAC1133FBF8C0075E97F /* JSON */,
+			);
+			name = Vendor;
+			path = Source/HTTPRiot/Vendor;
+			sourceTree = "<group>";
+		};
+		FF64EAA4133FBF8C0075E97F /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				FF64EAB2133FBF8C0075E97F /* HRBase64.h */,
+				FF64EAB3133FBF8C0075E97F /* HRBase64.m */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		FF64EAA5133FBF8C0075E97F /* Formatters */ = {
+			isa = PBXGroup;
+			children = (
+				FF64EAB4133FBF8C0075E97F /* HRFormatterProtocol.h */,
+				FF64EAB5133FBF8C0075E97F /* HRFormatJSON.h */,
+				FF64EAB6133FBF8C0075E97F /* HRFormatJSON.m */,
+				FF64EAB7133FBF8C0075E97F /* HRFormatXML.h */,
+				FF64EAB8133FBF8C0075E97F /* HRFormatXML.m */,
+			);
+			path = Formatters;
+			sourceTree = "<group>";
+		};
+		FF64EAA6133FBF8C0075E97F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FF64EAB9133FBF8C0075E97F /* NSDictionary+ParamUtils.h */,
+				FF64EABA133FBF8C0075E97F /* NSDictionary+ParamUtils.m */,
+				FF64EABB133FBF8C0075E97F /* NSString+EscapingUtils.h */,
+				FF64EABC133FBF8C0075E97F /* NSString+EscapingUtils.m */,
+				FF64EABD133FBF8C0075E97F /* NSObject+InvocationUtils.h */,
+				FF64EABE133FBF8C0075E97F /* NSObject+InvocationUtils.m */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FF64EABF133FBF8C0075E97F /* KissXML */ = {
+			isa = PBXGroup;
+			children = (
+				FF64EAC3133FBF8C0075E97F /* DDXML.h */,
+				FF64EAC4133FBF8C0075E97F /* DDXMLDocument.h */,
+				FF64EAC5133FBF8C0075E97F /* DDXMLDocument.m */,
+				FF64EAC6133FBF8C0075E97F /* DDXMLElement.h */,
+				FF64EAC7133FBF8C0075E97F /* DDXMLElement.m */,
+				FF64EAC8133FBF8C0075E97F /* DDXMLElementAdditions.h */,
+				FF64EAC9133FBF8C0075E97F /* DDXMLElementAdditions.m */,
+				FF64EACA133FBF8C0075E97F /* DDXMLNode.h */,
+				FF64EACB133FBF8C0075E97F /* DDXMLNode.m */,
+				FF64EACC133FBF8C0075E97F /* DDXMLPrivate.h */,
+				FF64EACD133FBF8C0075E97F /* NSStringAdditions.h */,
+				FF64EACE133FBF8C0075E97F /* NSStringAdditions.m */,
+			);
+			path = KissXML;
+			sourceTree = "<group>";
+		};
+		FF64EAC0133FBF8C0075E97F /* AIXMLSerialization */ = {
+			isa = PBXGroup;
+			children = (
+				FF64EACF133FBF8C0075E97F /* AIXMLDocumentSerialize.h */,
+				FF64EAD0133FBF8C0075E97F /* AIXMLDocumentSerialize.m */,
+				FF64EAD1133FBF8C0075E97F /* AIXMLElementSerialize.h */,
+				FF64EAD2133FBF8C0075E97F /* AIXMLElementSerialize.m */,
+				FF64EAD3133FBF8C0075E97F /* AIXMLSerialization.h */,
+			);
+			path = AIXMLSerialization;
+			sourceTree = "<group>";
+		};
+		FF64EAC1133FBF8C0075E97F /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				FF64EAD4133FBF8C0075E97F /* SBJsonBase.h */,
+				FF64EAD5133FBF8C0075E97F /* SBJsonBase.m */,
+				FF64EAD6133FBF8C0075E97F /* SBJsonParser.h */,
+				FF64EAD7133FBF8C0075E97F /* SBJsonParser.m */,
+				FF64EAD8133FBF8C0075E97F /* SBJsonWriter.h */,
+				FF64EAD9133FBF8C0075E97F /* SBJsonWriter.m */,
+				FF64EADA133FBF8C0075E97F /* JSON.h */,
+				FF64EADB133FBF8C0075E97F /* NSObject+SBJSON.h */,
+				FF64EADC133FBF8C0075E97F /* NSObject+SBJSON.m */,
+				FF64EADD133FBF8C0075E97F /* NSString+SBJSON.h */,
+				FF64EADE133FBF8C0075E97F /* NSString+SBJSON.m */,
+				FF64EADF133FBF8C0075E97F /* SBJSON.h */,
+				FF64EAE0133FBF8C0075E97F /* SBJSON.m */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
 		FFC69071133F714600D91EBE = {
 			isa = PBXGroup;
 			children = (
@@ -158,9 +377,10 @@
 		FFC6907F133F714600D91EBE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				FFC69080133F714600D91EBE /* UIKit.framework */,
-				FFC69082133F714600D91EBE /* Foundation.framework */,
 				FFC69084133F714600D91EBE /* CoreGraphics.framework */,
+				FFC69082133F714600D91EBE /* Foundation.framework */,
+				FF64EAA0133FBF520075E97F /* libxml2.2.dylib */,
+				FFC69080133F714600D91EBE /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -172,11 +392,18 @@
 				FFC69087133F714600D91EBE /* Supporting Files */,
 				FFC6908F133F714600D91EBE /* costoflivingAppDelegate.h */,
 				FFC69090133F714600D91EBE /* costoflivingAppDelegate.m */,
+				FF64EB2D133FE5320075E97F /* CheckPricesViewController.h */,
+				FF64EB2E133FE5320075E97F /* CheckPricesViewController.m */,
+				FF64EB17133FD4390075E97F /* CreateNoteViewController.h */,
+				FF64EB18133FD4390075E97F /* CreateNoteViewController.m */,
+				FF64EB19133FD4390075E97F /* CreateNoteViewController.xib */,
 				FF574186133F97DC00E0735C /* DetailNewsViewController.h */,
 				FF574187133F97DC00E0735C /* DetailNewsViewController.m */,
 				FFC69092133F714700D91EBE /* MainWindow.xib */,
 				FF574155133F773600E0735C /* ReadNewsViewController.h */,
 				FF574156133F773600E0735C /* ReadNewsViewController.m */,
+				FF64EB22133FDA4A0075E97F /* Product.h */,
+				FF64EB23133FDA4A0075E97F /* Product.m */,
 			);
 			path = costofliving;
 			sourceTree = "<group>";
@@ -244,6 +471,7 @@
 			files = (
 				FFC6908B133F714600D91EBE /* InfoPlist.strings in Resources */,
 				FFC69094133F714700D91EBE /* MainWindow.xib in Resources */,
+				FF64EB1B133FD4390075E97F /* CreateNoteViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +493,32 @@
 				FF574154133F76CF00E0735C /* NSString+XMLEntities.m in Sources */,
 				FF574157133F773600E0735C /* ReadNewsViewController.m in Sources */,
 				FF574188133F97DC00E0735C /* DetailNewsViewController.m in Sources */,
+				FF64EAF3133FBF8C0075E97F /* HRBase64.m in Sources */,
+				FF64EAF4133FBF8C0075E97F /* HRFormatJSON.m in Sources */,
+				FF64EAF5133FBF8C0075E97F /* HRFormatXML.m in Sources */,
+				FF64EAF6133FBF8C0075E97F /* NSDictionary+ParamUtils.m in Sources */,
+				FF64EAF7133FBF8C0075E97F /* NSString+EscapingUtils.m in Sources */,
+				FF64EAF8133FBF8C0075E97F /* NSObject+InvocationUtils.m in Sources */,
+				FF64EAF9133FBF8C0075E97F /* HRRestModel.m in Sources */,
+				FF64EAFA133FBF8C0075E97F /* HRRequestOperation.m in Sources */,
+				FF64EAFB133FBF8C0075E97F /* HROperationQueue.m in Sources */,
+				FF64EAFC133FBF8C0075E97F /* HRGlobal.m in Sources */,
+				FF64EAFD133FBF8C0075E97F /* DDXMLDocument.m in Sources */,
+				FF64EAFE133FBF8C0075E97F /* DDXMLElement.m in Sources */,
+				FF64EAFF133FBF8C0075E97F /* DDXMLElementAdditions.m in Sources */,
+				FF64EB00133FBF8C0075E97F /* DDXMLNode.m in Sources */,
+				FF64EB01133FBF8C0075E97F /* NSStringAdditions.m in Sources */,
+				FF64EB02133FBF8C0075E97F /* AIXMLDocumentSerialize.m in Sources */,
+				FF64EB03133FBF8C0075E97F /* AIXMLElementSerialize.m in Sources */,
+				FF64EB04133FBF8C0075E97F /* SBJsonBase.m in Sources */,
+				FF64EB05133FBF8C0075E97F /* SBJsonParser.m in Sources */,
+				FF64EB06133FBF8C0075E97F /* SBJsonWriter.m in Sources */,
+				FF64EB07133FBF8C0075E97F /* NSObject+SBJSON.m in Sources */,
+				FF64EB08133FBF8C0075E97F /* NSString+SBJSON.m in Sources */,
+				FF64EB09133FBF8C0075E97F /* SBJSON.m in Sources */,
+				FF64EB1A133FD4390075E97F /* CreateNoteViewController.m in Sources */,
+				FF64EB24133FDA4B0075E97F /* Product.m in Sources */,
+				FF64EB2F133FE5330075E97F /* CheckPricesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,7 +556,9 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				LIBRARY_SEARCH_PATHS = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -316,7 +572,9 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				LIBRARY_SEARCH_PATHS = "";
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 			};
@@ -331,6 +589,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "costofliving/costofliving-Prefix.pch";
 				INFOPLIST_FILE = "costofliving/costofliving-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/httpriot/Source/HTTPRiot/Vendor/gh-unit-iphone\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -344,6 +606,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "costofliving/costofliving-Prefix.pch";
 				INFOPLIST_FILE = "costofliving/costofliving-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/httpriot/Source/HTTPRiot/Vendor/gh-unit-iphone\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
