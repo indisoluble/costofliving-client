@@ -1,0 +1,268 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FFC69081133F714600D91EBE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFC69080133F714600D91EBE /* UIKit.framework */; };
+		FFC69083133F714600D91EBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFC69082133F714600D91EBE /* Foundation.framework */; };
+		FFC69085133F714600D91EBE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFC69084133F714600D91EBE /* CoreGraphics.framework */; };
+		FFC6908B133F714600D91EBE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FFC69089133F714600D91EBE /* InfoPlist.strings */; };
+		FFC6908E133F714600D91EBE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC6908D133F714600D91EBE /* main.m */; };
+		FFC69091133F714600D91EBE /* costoflivingAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC69090133F714600D91EBE /* costoflivingAppDelegate.m */; };
+		FFC69094133F714700D91EBE /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFC69092133F714700D91EBE /* MainWindow.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		FFC6907C133F714600D91EBE /* costofliving.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = costofliving.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFC69080133F714600D91EBE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		FFC69082133F714600D91EBE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		FFC69084133F714600D91EBE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		FFC69088133F714600D91EBE /* costofliving-Info.plist */ = {isa = PBXFileReference; path = "costofliving-Info.plist"; sourceTree = "<group>"; };
+		FFC6908A133F714600D91EBE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FFC6908C133F714600D91EBE /* costofliving-Prefix.pch */ = {isa = PBXFileReference; path = "costofliving-Prefix.pch"; sourceTree = "<group>"; };
+		FFC6908D133F714600D91EBE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FFC6908F133F714600D91EBE /* costoflivingAppDelegate.h */ = {isa = PBXFileReference; path = costoflivingAppDelegate.h; sourceTree = "<group>"; };
+		FFC69090133F714600D91EBE /* costoflivingAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = costoflivingAppDelegate.m; sourceTree = "<group>"; };
+		FFC69093133F714700D91EBE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FFC69079133F714600D91EBE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FFC69081133F714600D91EBE /* UIKit.framework in Frameworks */,
+				FFC69083133F714600D91EBE /* Foundation.framework in Frameworks */,
+				FFC69085133F714600D91EBE /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FFC69071133F714600D91EBE = {
+			isa = PBXGroup;
+			children = (
+				FFC69086133F714600D91EBE /* costofliving */,
+				FFC6907F133F714600D91EBE /* Frameworks */,
+				FFC6907D133F714600D91EBE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FFC6907D133F714600D91EBE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FFC6907C133F714600D91EBE /* costofliving.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FFC6907F133F714600D91EBE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FFC69080133F714600D91EBE /* UIKit.framework */,
+				FFC69082133F714600D91EBE /* Foundation.framework */,
+				FFC69084133F714600D91EBE /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FFC69086133F714600D91EBE /* costofliving */ = {
+			isa = PBXGroup;
+			children = (
+				FFC6908F133F714600D91EBE /* costoflivingAppDelegate.h */,
+				FFC69090133F714600D91EBE /* costoflivingAppDelegate.m */,
+				FFC69092133F714700D91EBE /* MainWindow.xib */,
+				FFC69087133F714600D91EBE /* Supporting Files */,
+			);
+			path = costofliving;
+			sourceTree = "<group>";
+		};
+		FFC69087133F714600D91EBE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FFC69088133F714600D91EBE /* costofliving-Info.plist */,
+				FFC69089133F714600D91EBE /* InfoPlist.strings */,
+				FFC6908C133F714600D91EBE /* costofliving-Prefix.pch */,
+				FFC6908D133F714600D91EBE /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FFC6907B133F714600D91EBE /* costofliving */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FFC69097133F714700D91EBE /* Build configuration list for PBXNativeTarget "costofliving" */;
+			buildPhases = (
+				FFC69078133F714600D91EBE /* Sources */,
+				FFC69079133F714600D91EBE /* Frameworks */,
+				FFC6907A133F714600D91EBE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = costofliving;
+			productName = costofliving;
+			productReference = FFC6907C133F714600D91EBE /* costofliving.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FFC69073133F714600D91EBE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Enrique de la Torre";
+			};
+			buildConfigurationList = FFC69076133F714600D91EBE /* Build configuration list for PBXProject "costofliving" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = FFC69071133F714600D91EBE;
+			productRefGroup = FFC6907D133F714600D91EBE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FFC6907B133F714600D91EBE /* costofliving */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FFC6907A133F714600D91EBE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FFC6908B133F714600D91EBE /* InfoPlist.strings in Resources */,
+				FFC69094133F714700D91EBE /* MainWindow.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FFC69078133F714600D91EBE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FFC6908E133F714600D91EBE /* main.m in Sources */,
+				FFC69091133F714600D91EBE /* costoflivingAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		FFC69089133F714600D91EBE /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FFC6908A133F714600D91EBE /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		FFC69092133F714700D91EBE /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FFC69093133F714700D91EBE /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FFC69095133F714700D91EBE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		FFC69096133F714700D91EBE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		FFC69098133F714700D91EBE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "costofliving/costofliving-Prefix.pch";
+				INFOPLIST_FILE = "costofliving/costofliving-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		FFC69099133F714700D91EBE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "costofliving/costofliving-Prefix.pch";
+				INFOPLIST_FILE = "costofliving/costofliving-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FFC69076133F714600D91EBE /* Build configuration list for PBXProject "costofliving" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FFC69095133F714700D91EBE /* Debug */,
+				FFC69096133F714700D91EBE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FFC69097133F714700D91EBE /* Build configuration list for PBXNativeTarget "costofliving" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FFC69098133F714700D91EBE /* Debug */,
+				FFC69099133F714700D91EBE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FFC69073133F714600D91EBE /* Project object */;
+}
