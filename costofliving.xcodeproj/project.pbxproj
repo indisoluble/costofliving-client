@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF57414E133F76CF00E0735C /* MWFeedParser.m in Sources */ = {isa = PBXBuildFile; fileRef = FF57413E133F76CF00E0735C /* MWFeedParser.m */; };
+		FF57414F133F76CF00E0735C /* MWFeedInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FF574140133F76CF00E0735C /* MWFeedInfo.m */; };
+		FF574150133F76CF00E0735C /* MWFeedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FF574142133F76CF00E0735C /* MWFeedItem.m */; };
+		FF574151133F76CF00E0735C /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = FF574144133F76CF00E0735C /* NSString+HTML.m */; };
+		FF574152133F76CF00E0735C /* NSDate+InternetDateTime.m in Sources */ = {isa = PBXBuildFile; fileRef = FF574146133F76CF00E0735C /* NSDate+InternetDateTime.m */; };
+		FF574153133F76CF00E0735C /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = FF57414A133F76CF00E0735C /* GTMNSString+HTML.m */; };
+		FF574154133F76CF00E0735C /* NSString+XMLEntities.m in Sources */ = {isa = PBXBuildFile; fileRef = FF57414D133F76CF00E0735C /* NSString+XMLEntities.m */; };
+		FF574157133F773600E0735C /* ReadNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF574156133F773600E0735C /* ReadNewsViewController.m */; };
+		FF574188133F97DC00E0735C /* DetailNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF574187133F97DC00E0735C /* DetailNewsViewController.m */; };
 		FFC69081133F714600D91EBE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFC69080133F714600D91EBE /* UIKit.framework */; };
 		FFC69083133F714600D91EBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFC69082133F714600D91EBE /* Foundation.framework */; };
 		FFC69085133F714600D91EBE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFC69084133F714600D91EBE /* CoreGraphics.framework */; };
@@ -17,6 +26,26 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FF57413C133F76CF00E0735C /* MWFeedParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFeedParser.h; sourceTree = "<group>"; };
+		FF57413D133F76CF00E0735C /* MWFeedParser_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFeedParser_Private.h; sourceTree = "<group>"; };
+		FF57413E133F76CF00E0735C /* MWFeedParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWFeedParser.m; sourceTree = "<group>"; };
+		FF57413F133F76CF00E0735C /* MWFeedInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFeedInfo.h; sourceTree = "<group>"; };
+		FF574140133F76CF00E0735C /* MWFeedInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWFeedInfo.m; sourceTree = "<group>"; };
+		FF574141133F76CF00E0735C /* MWFeedItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFeedItem.h; sourceTree = "<group>"; };
+		FF574142133F76CF00E0735C /* MWFeedItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWFeedItem.m; sourceTree = "<group>"; };
+		FF574143133F76CF00E0735C /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HTML.h"; sourceTree = "<group>"; };
+		FF574144133F76CF00E0735C /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
+		FF574145133F76CF00E0735C /* NSDate+InternetDateTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+InternetDateTime.h"; sourceTree = "<group>"; };
+		FF574146133F76CF00E0735C /* NSDate+InternetDateTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+InternetDateTime.m"; sourceTree = "<group>"; };
+		FF574149133F76CF00E0735C /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
+		FF57414A133F76CF00E0735C /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
+		FF57414B133F76CF00E0735C /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		FF57414C133F76CF00E0735C /* NSString+XMLEntities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+XMLEntities.h"; sourceTree = "<group>"; };
+		FF57414D133F76CF00E0735C /* NSString+XMLEntities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+XMLEntities.m"; sourceTree = "<group>"; };
+		FF574155133F773600E0735C /* ReadNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadNewsViewController.h; sourceTree = "<group>"; };
+		FF574156133F773600E0735C /* ReadNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadNewsViewController.m; sourceTree = "<group>"; };
+		FF574186133F97DC00E0735C /* DetailNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailNewsViewController.h; sourceTree = "<group>"; };
+		FF574187133F97DC00E0735C /* DetailNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailNewsViewController.m; sourceTree = "<group>"; };
 		FFC6907C133F714600D91EBE /* costofliving.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = costofliving.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFC69080133F714600D91EBE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FFC69082133F714600D91EBE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -44,6 +73,71 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FF5740BF133F768B00E0735C /* Externals */ = {
+			isa = PBXGroup;
+			children = (
+				FF5740C1133F76B500E0735C /* MWFeedParser */,
+			);
+			name = Externals;
+			sourceTree = "<group>";
+		};
+		FF5740C1133F76B500E0735C /* MWFeedParser */ = {
+			isa = PBXGroup;
+			children = (
+				FF57413A133F76CF00E0735C /* MWFeedParser */,
+				FF57413B133F76CF00E0735C /* Categories */,
+			);
+			path = MWFeedParser;
+			sourceTree = SOURCE_ROOT;
+		};
+		FF57413A133F76CF00E0735C /* MWFeedParser */ = {
+			isa = PBXGroup;
+			children = (
+				FF57413C133F76CF00E0735C /* MWFeedParser.h */,
+				FF57413D133F76CF00E0735C /* MWFeedParser_Private.h */,
+				FF57413E133F76CF00E0735C /* MWFeedParser.m */,
+				FF57413F133F76CF00E0735C /* MWFeedInfo.h */,
+				FF574140133F76CF00E0735C /* MWFeedInfo.m */,
+				FF574141133F76CF00E0735C /* MWFeedItem.h */,
+				FF574142133F76CF00E0735C /* MWFeedItem.m */,
+			);
+			name = MWFeedParser;
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		FF57413B133F76CF00E0735C /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				FF574143133F76CF00E0735C /* NSString+HTML.h */,
+				FF574144133F76CF00E0735C /* NSString+HTML.m */,
+				FF574145133F76CF00E0735C /* NSDate+InternetDateTime.h */,
+				FF574146133F76CF00E0735C /* NSDate+InternetDateTime.m */,
+				FF574147133F76CF00E0735C /* Google Toolbox for Mac */,
+				FF574148133F76CF00E0735C /* Depreciated */,
+			);
+			name = Categories;
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		FF574147133F76CF00E0735C /* Google Toolbox for Mac */ = {
+			isa = PBXGroup;
+			children = (
+				FF574149133F76CF00E0735C /* GTMNSString+HTML.h */,
+				FF57414A133F76CF00E0735C /* GTMNSString+HTML.m */,
+				FF57414B133F76CF00E0735C /* GTMDefines.h */,
+			);
+			name = "Google Toolbox for Mac";
+			sourceTree = "<group>";
+		};
+		FF574148133F76CF00E0735C /* Depreciated */ = {
+			isa = PBXGroup;
+			children = (
+				FF57414C133F76CF00E0735C /* NSString+XMLEntities.h */,
+				FF57414D133F76CF00E0735C /* NSString+XMLEntities.m */,
+			);
+			name = Depreciated;
+			sourceTree = "<group>";
+		};
 		FFC69071133F714600D91EBE = {
 			isa = PBXGroup;
 			children = (
@@ -74,10 +168,15 @@
 		FFC69086133F714600D91EBE /* costofliving */ = {
 			isa = PBXGroup;
 			children = (
+				FF5740BF133F768B00E0735C /* Externals */,
 				FFC69087133F714600D91EBE /* Supporting Files */,
 				FFC6908F133F714600D91EBE /* costoflivingAppDelegate.h */,
 				FFC69090133F714600D91EBE /* costoflivingAppDelegate.m */,
+				FF574186133F97DC00E0735C /* DetailNewsViewController.h */,
+				FF574187133F97DC00E0735C /* DetailNewsViewController.m */,
 				FFC69092133F714700D91EBE /* MainWindow.xib */,
+				FF574155133F773600E0735C /* ReadNewsViewController.h */,
+				FF574156133F773600E0735C /* ReadNewsViewController.m */,
 			);
 			path = costofliving;
 			sourceTree = "<group>";
@@ -157,6 +256,15 @@
 			files = (
 				FFC6908E133F714600D91EBE /* main.m in Sources */,
 				FFC69091133F714600D91EBE /* costoflivingAppDelegate.m in Sources */,
+				FF57414E133F76CF00E0735C /* MWFeedParser.m in Sources */,
+				FF57414F133F76CF00E0735C /* MWFeedInfo.m in Sources */,
+				FF574150133F76CF00E0735C /* MWFeedItem.m in Sources */,
+				FF574151133F76CF00E0735C /* NSString+HTML.m in Sources */,
+				FF574152133F76CF00E0735C /* NSDate+InternetDateTime.m in Sources */,
+				FF574153133F76CF00E0735C /* GTMNSString+HTML.m in Sources */,
+				FF574154133F76CF00E0735C /* NSString+XMLEntities.m in Sources */,
+				FF574157133F773600E0735C /* ReadNewsViewController.m in Sources */,
+				FF574188133F97DC00E0735C /* DetailNewsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +369,7 @@
 				FFC69099133F714700D91EBE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

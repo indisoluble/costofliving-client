@@ -7,18 +7,18 @@
 //
 
 #import "costoflivingAppDelegate.h"
+#import "ReadNewsViewController.h"
+
 
 @implementation costoflivingAppDelegate
 
 
-#pragma mark -
-#pragma mark Synthesized properties
+#pragma mark - Synthesized properties
 @synthesize window = _window;
 @synthesize tabBarController = _taBarController;
 
 
-#pragma mark -
-#pragma mark UIApplicationDelegate methods
+#pragma mark - UIApplicationDelegate methods
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Initialize tabBarController
@@ -34,7 +34,8 @@
     
     // Tab to read news
     UINavigationController *readNewsNavController = [[[UINavigationController alloc] init] autorelease];
-    readNewsNavController.title = @"News";
+    ReadNewsViewController *readNewsViewController = [[[ReadNewsViewController alloc] initWithStyle:UITableViewStylePlain] autorelease];
+    [readNewsNavController pushViewController:readNewsViewController animated:NO];
     
     // Adds tabs to tabBarController
     NSArray *viewControllers = [NSArray arrayWithObjects:createNotesNavController, checkPricesNavController, readNewsNavController, nil];
@@ -87,8 +88,7 @@
 }
 
 
-#pragma mark -
-#pragma mark Memory management
+#pragma mark - Memory management
 - (void)dealloc
 {
     self.tabBarController = nil;
