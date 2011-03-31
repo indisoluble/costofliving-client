@@ -7,15 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+
 #import "Product.h"
+#import "ActualServerProtocol.h"
 
 
 @interface CheckPricesViewController : UITableViewController <ProductProtocol> {
     Product *_product;
     NSArray *_productList;
+    
+    id<ActualServerProtocol> _delegate;
 }
 
 @property (nonatomic, retain) Product *product;
 @property (nonatomic, retain) NSArray *productList;
+
+@property (nonatomic, assign) id<ActualServerProtocol> delegate;
 
 @end

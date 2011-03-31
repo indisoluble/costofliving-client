@@ -18,6 +18,7 @@
 #pragma mark - Synthesized properties
 @synthesize window = _window;
 @synthesize tabBarController = _taBarController;
+@synthesize chooseServerViewController = _chooseServerViewController;
 
 
 #pragma mark - UIApplicationDelegate methods
@@ -29,11 +30,13 @@
     // Tab to create and list own notes
     UINavigationController *createNotesNavController = [[[UINavigationController alloc] init] autorelease];
     CreateNoteViewController *createNoteViewController = [[[CreateNoteViewController alloc] init] autorelease];
+    createNoteViewController.delegate = self;
     [createNotesNavController pushViewController:createNoteViewController animated:NO];
     
     // Tab to check prices
     UINavigationController *checkPricesNavController = [[[UINavigationController alloc] init] autorelease];
     CheckPricesViewController *checkPricesViewController = [[[CheckPricesViewController alloc] initWithStyle:UITableViewStylePlain] autorelease];
+    checkPricesViewController.delegate = self;
     [checkPricesNavController pushViewController:checkPricesViewController animated:NO];
     
     // Tab to read news
@@ -41,8 +44,14 @@
     ReadNewsViewController *readNewsViewController = [[[ReadNewsViewController alloc] initWithStyle:UITableViewStylePlain] autorelease];
     [readNewsNavController pushViewController:readNewsViewController animated:NO];
     
+    // Tab to choose server
+    UINavigationController *chooseServerNavController = [[[UINavigationController alloc] init] autorelease];
+    self.chooseServerViewController = [[[ChooseServerViewController alloc] initWithStyle:UITableViewStylePlain] autorelease];
+    [chooseServerNavController pushViewController:self.chooseServerViewController animated:NO];
+    
+    
     // Adds tabs to tabBarController
-    NSArray *viewControllers = [NSArray arrayWithObjects:createNotesNavController, checkPricesNavController, readNewsNavController, nil];
+    NSArray *viewControllers = [NSArray arrayWithObjects:createNotesNavController, checkPricesNavController, readNewsNavController, chooseServerNavController,nil];
     self.tabBarController.viewControllers = viewControllers;
     
     // Show tabs
@@ -95,10 +104,17 @@
 #pragma mark - Memory management
 - (void)dealloc
 {
+    self.chooseServerViewController = nil;
     self.tabBarController = nil;
     
     [_window release];
     [super dealloc];
+}
+
+
+#pragma mark - ActualServerProtocol methods
+- (ServerData *)actualSever {
+    return [self.chooseServerViewController actualServer];
 }
 
 @end

@@ -8,15 +8,24 @@
 
 #import <UIKit/UIKit.h>
 
+#import "ActualServerProtocol.h"
 
-@interface CreateNoteViewController : UIViewController <UITextFieldDelegate> {
+
+@interface CreateNoteViewController : UIViewController <UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate> {
     UITextField *_name;
     UITextField *_price;
+    UIImageView *_imageView;
+    
+    id<ActualServerProtocol> _delegate;
 }
 
 @property (nonatomic, retain) IBOutlet UITextField *name;
 @property (nonatomic, retain) IBOutlet UITextField *price;
+@property (nonatomic, retain) IBOutlet UIImageView *imageView;
 
+@property (nonatomic, assign) id<ActualServerProtocol> delegate;
+
+- (IBAction) showCamera;
 - (IBAction) saveProduct;
 
 @end

@@ -1,29 +1,23 @@
 //
-//  CheckPricesViewController.m
+//  ChooseServerViewController.m
 //  costofliving
 //
-//  Created by Enrique de la Torre on 27/03/11.
+//  Created by Enrique de la Torre on 31/03/11.
 //  Copyright 2011 Enrique de la Torre. All rights reserved.
 //
 
-#import "CheckPricesViewController.h"
-#import "PhotoPriceViewController.h"
+#import "ChooseServerViewController.h"
 
 
-@interface CheckPricesViewController (Private)
-
-- (void) refreshProducts;
-
+@interface ChooseServerViewController (Private)
+- (void) changeActualServer;
 @end
 
 
-@implementation CheckPricesViewController
+@implementation ChooseServerViewController
 
 
 #pragma mark - Synthesized methods
-@synthesize product = _product;
-@synthesize productList = _productList;
-@synthesize delegate = _delegate;
 
 
 #pragma mark - Init object
@@ -31,14 +25,30 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Alloc product to exec 'refresh'
-        self.product = [[[Product alloc] init] autorelease];
-        self.product.delegate = self;
+        NSString *pathToPlist = [[NSBundle mainBundle] pathForResource:@"costofliving-Servers" ofType:@"plist"];
+        NSArray *serversPlist = [NSArray arrayWithContentsOfFile:pathToPlist];
         
-        // Prepare list of product
-        self.productList = [NSArray array];
+        _servers = [[NSMutableArray alloc] initWithCapacity:[serversPlist count]];
+        _selected = 0;
         
-        self.title = @"Prices";
+        NSDictionary *oneServerPlist = nil;
+        ServerData *oneServer = nil;
+        for (int i = 0; i < [serversPlist count]; i++) {
+            oneServerPlist = [serversPlist objectAtIndex:i];
+            
+            oneServer = [[[ServerData alloc] initWithName:[oneServerPlist objectForKey:@"Name"]
+                                                  Address:[oneServerPlist objectForKey:@"Address"]
+                                              AllowPhotos:[[oneServerPlist objectForKey:@"AllowPhotos"] boolValue]] autorelease];
+            
+            [_servers addObject:oneServer];
+            
+            if ([[oneServerPlist objectForKey:@"Selected"] boolValue]) {
+                _selected = i;
+            }
+        }
+        
+        _selectedTemp = _selected;
+        self.title = [[_servers objectAtIndex:_selected] name];
     }
     return self;
 }
@@ -47,8 +57,7 @@
 #pragma mark - Memory management
 - (void)dealloc
 {
-    self.product = nil;
-    self.productList = nil;
+    [_servers release];
     
     [super dealloc];
 }
@@ -70,10 +79,9 @@
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh 
+    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone 
 																							target:self 
-																							action:@selector(refreshProducts)] autorelease];
-    [self refreshProducts];
+																							action:@selector(changeActualServer)] autorelease];
 }
 
 - (void)viewDidUnload
@@ -119,7 +127,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.productList count];
+    // Return the number of rows in the section.
+    return [_servers count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -132,15 +141,11 @@
     }
     
     // Configure the cell...
-    Product *oneProduct = [self.productList objectAtIndex:indexPath.row];
-	if (oneProduct) {
-        //cell.imageView.image = oneProduct.image;
-        
-		cell.textLabel.font = [UIFont boldSystemFontOfSize:15];
-		cell.textLabel.text = oneProduct.name;
-        
-		cell.detailTextLabel.text = [NSString stringWithFormat:@"%i €", oneProduct.price];
-	}
+    ServerData *oneServer = [_servers objectAtIndex:indexPath.row];
+    cell.textLabel.font = [UIFont boldSystemFontOfSize:15];
+    cell.textLabel.text = oneServer.name;
+    cell.detailTextLabel.font = [UIFont italicSystemFontOfSize:10];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"Allow photos: %@ Addr: %@", (oneServer.allowPhotos ? @"YES" : @"NO"), oneServer.address];
     
     return cell;
 }
@@ -188,37 +193,21 @@
 #pragma mark - Table view delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    PhotoPriceViewController *detailViewController = [[PhotoPriceViewController alloc] initWithNibName:@"PhotoPriceViewController" bundle:nil];
-    detailViewController.product = [self.productList objectAtIndex:indexPath.row];
-    
-    // Pass the selected object to the new view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
-    [detailViewController release];
+    _selectedTemp = indexPath.row;
 }
 
 
-#pragma mark - ProductProtocol methods
-- (void)useProductsList:(NSArray *)list
-{
-    NSLog(@"Finished refreshing");
-    self.productList = list;
-    
-    self.title = @"Prices";
-	self.tableView.userInteractionEnabled = YES;
-	self.tableView.alpha = 1;
-	[self.tableView reloadData];
+#pragma mark - Public methods
+- (ServerData *)actualServer {
+    return [_servers objectAtIndex:_selected];
 }
 
 
 #pragma mark - Private methods
-- (void) refreshProducts
-{
-    self.title = @"Refreshing...";
-    self.tableView.userInteractionEnabled = NO;
-	self.tableView.alpha = 0.3;
-    
-    [self.product refreshFromSerer:[self.delegate actualSever]];
+- (void) changeActualServer {
+    _selected = _selectedTemp;
+    self.title = [[_servers objectAtIndex:_selected] name];
 }
+
 
 @end

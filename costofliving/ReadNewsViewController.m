@@ -88,7 +88,7 @@
  
     self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh 
 																							target:self 
-																							action:@selector(refreshItems)] autorelease];    
+																							action:@selector(refreshItems)] autorelease];
     [self refreshItems];
 }
 

@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+
 #import "HTTPRiot.h"
+#import "ServerData.h"
 
 
 @protocol ProductProtocol
@@ -19,17 +21,19 @@
 
 @interface Product : NSObject <HRResponseDelegate> {
     NSString *_name;
-    NSUInteger _price;
+    NSUInteger _price; 
+    UIImage *_image;
     
     id<ProductProtocol> _delegate;
 }
 
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic) NSUInteger price;
+@property (nonatomic, retain) UIImage *image;
 
 @property (nonatomic, assign) id<ProductProtocol> delegate;
 
-- (void) saveRemote;
-- (void)refresh;
+- (void)saveRemoteToServer:(ServerData *)server;
+- (void)refreshFromSerer:(ServerData *)server;
 
 @end

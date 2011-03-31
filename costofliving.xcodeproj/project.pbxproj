@@ -44,6 +44,12 @@
 		FF64EB1B133FD4390075E97F /* CreateNoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF64EB19133FD4390075E97F /* CreateNoteViewController.xib */; };
 		FF64EB24133FDA4B0075E97F /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = FF64EB23133FDA4A0075E97F /* Product.m */; };
 		FF64EB2F133FE5330075E97F /* CheckPricesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF64EB2E133FE5320075E97F /* CheckPricesViewController.m */; };
+		FF6C75ED1343FA7D00AFBD0B /* ServerData.m in Sources */ = {isa = PBXBuildFile; fileRef = FF6C75EC1343FA7D00AFBD0B /* ServerData.m */; };
+		FF6C75FA13442F2100AFBD0B /* PhotoPriceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF6C75F813442F1F00AFBD0B /* PhotoPriceViewController.m */; };
+		FF6C75FB13442F2100AFBD0B /* PhotoPriceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF6C75F913442F2000AFBD0B /* PhotoPriceViewController.xib */; };
+		FF93B9E31343D40C007AE8EC /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF93B9E21343D40C007AE8EC /* MobileCoreServices.framework */; };
+		FF93B9E61343F250007AE8EC /* costofliving-Servers.plist in Resources */ = {isa = PBXBuildFile; fileRef = FF93B9E51343F250007AE8EC /* costofliving-Servers.plist */; };
+		FF93B9E91343F551007AE8EC /* ChooseServerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF93B9E81343F550007AE8EC /* ChooseServerViewController.m */; };
 		FFC69081133F714600D91EBE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFC69080133F714600D91EBE /* UIKit.framework */; };
 		FFC69083133F714600D91EBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFC69082133F714600D91EBE /* Foundation.framework */; };
 		FFC69085133F714600D91EBE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFC69084133F714600D91EBE /* CoreGraphics.framework */; };
@@ -136,6 +142,16 @@
 		FF64EB23133FDA4A0075E97F /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
 		FF64EB2D133FE5320075E97F /* CheckPricesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckPricesViewController.h; sourceTree = "<group>"; };
 		FF64EB2E133FE5320075E97F /* CheckPricesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckPricesViewController.m; sourceTree = "<group>"; };
+		FF6C75EB1343FA7D00AFBD0B /* ServerData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerData.h; sourceTree = "<group>"; };
+		FF6C75EC1343FA7D00AFBD0B /* ServerData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerData.m; sourceTree = "<group>"; };
+		FF6C75EE1344091D00AFBD0B /* ActualServerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActualServerProtocol.h; sourceTree = "<group>"; };
+		FF6C75F713442F1D00AFBD0B /* PhotoPriceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoPriceViewController.h; sourceTree = "<group>"; };
+		FF6C75F813442F1F00AFBD0B /* PhotoPriceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoPriceViewController.m; sourceTree = "<group>"; };
+		FF6C75F913442F2000AFBD0B /* PhotoPriceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoPriceViewController.xib; sourceTree = "<group>"; };
+		FF93B9E21343D40C007AE8EC /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		FF93B9E51343F250007AE8EC /* costofliving-Servers.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "costofliving-Servers.plist"; sourceTree = "<group>"; };
+		FF93B9E71343F54F007AE8EC /* ChooseServerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseServerViewController.h; sourceTree = "<group>"; };
+		FF93B9E81343F550007AE8EC /* ChooseServerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseServerViewController.m; sourceTree = "<group>"; };
 		FFC6907C133F714600D91EBE /* costofliving.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = costofliving.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFC69080133F714600D91EBE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FFC69082133F714600D91EBE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -154,6 +170,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF93B9E31343D40C007AE8EC /* MobileCoreServices.framework in Frameworks */,
 				FF64EAA1133FBF520075E97F /* libxml2.2.dylib in Frameworks */,
 				FFC69081133F714600D91EBE /* UIKit.framework in Frameworks */,
 				FFC69083133F714600D91EBE /* Foundation.framework in Frameworks */,
@@ -380,6 +397,7 @@
 				FFC69084133F714600D91EBE /* CoreGraphics.framework */,
 				FFC69082133F714600D91EBE /* Foundation.framework */,
 				FF64EAA0133FBF520075E97F /* libxml2.2.dylib */,
+				FF93B9E21343D40C007AE8EC /* MobileCoreServices.framework */,
 				FFC69080133F714600D91EBE /* UIKit.framework */,
 			);
 			name = Frameworks;
@@ -390,20 +408,28 @@
 			children = (
 				FF5740BF133F768B00E0735C /* Externals */,
 				FFC69087133F714600D91EBE /* Supporting Files */,
-				FFC6908F133F714600D91EBE /* costoflivingAppDelegate.h */,
-				FFC69090133F714600D91EBE /* costoflivingAppDelegate.m */,
+				FF6C75EE1344091D00AFBD0B /* ActualServerProtocol.h */,
 				FF64EB2D133FE5320075E97F /* CheckPricesViewController.h */,
 				FF64EB2E133FE5320075E97F /* CheckPricesViewController.m */,
+				FF93B9E71343F54F007AE8EC /* ChooseServerViewController.h */,
+				FF93B9E81343F550007AE8EC /* ChooseServerViewController.m */,
+				FFC6908F133F714600D91EBE /* costoflivingAppDelegate.h */,
+				FFC69090133F714600D91EBE /* costoflivingAppDelegate.m */,
 				FF64EB17133FD4390075E97F /* CreateNoteViewController.h */,
 				FF64EB18133FD4390075E97F /* CreateNoteViewController.m */,
 				FF64EB19133FD4390075E97F /* CreateNoteViewController.xib */,
 				FF574186133F97DC00E0735C /* DetailNewsViewController.h */,
 				FF574187133F97DC00E0735C /* DetailNewsViewController.m */,
 				FFC69092133F714700D91EBE /* MainWindow.xib */,
-				FF574155133F773600E0735C /* ReadNewsViewController.h */,
-				FF574156133F773600E0735C /* ReadNewsViewController.m */,
+				FF6C75F713442F1D00AFBD0B /* PhotoPriceViewController.h */,
+				FF6C75F813442F1F00AFBD0B /* PhotoPriceViewController.m */,
+				FF6C75F913442F2000AFBD0B /* PhotoPriceViewController.xib */,
 				FF64EB22133FDA4A0075E97F /* Product.h */,
 				FF64EB23133FDA4A0075E97F /* Product.m */,
+				FF574155133F773600E0735C /* ReadNewsViewController.h */,
+				FF574156133F773600E0735C /* ReadNewsViewController.m */,
+				FF6C75EB1343FA7D00AFBD0B /* ServerData.h */,
+				FF6C75EC1343FA7D00AFBD0B /* ServerData.m */,
 			);
 			path = costofliving;
 			sourceTree = "<group>";
@@ -412,8 +438,9 @@
 			isa = PBXGroup;
 			children = (
 				FFC69088133F714600D91EBE /* costofliving-Info.plist */,
-				FFC69089133F714600D91EBE /* InfoPlist.strings */,
 				FFC6908C133F714600D91EBE /* costofliving-Prefix.pch */,
+				FF93B9E51343F250007AE8EC /* costofliving-Servers.plist */,
+				FFC69089133F714600D91EBE /* InfoPlist.strings */,
 				FFC6908D133F714600D91EBE /* main.m */,
 			);
 			name = "Supporting Files";
@@ -472,6 +499,8 @@
 				FFC6908B133F714600D91EBE /* InfoPlist.strings in Resources */,
 				FFC69094133F714700D91EBE /* MainWindow.xib in Resources */,
 				FF64EB1B133FD4390075E97F /* CreateNoteViewController.xib in Resources */,
+				FF93B9E61343F250007AE8EC /* costofliving-Servers.plist in Resources */,
+				FF6C75FB13442F2100AFBD0B /* PhotoPriceViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,6 +548,9 @@
 				FF64EB1A133FD4390075E97F /* CreateNoteViewController.m in Sources */,
 				FF64EB24133FDA4B0075E97F /* Product.m in Sources */,
 				FF64EB2F133FE5330075E97F /* CheckPricesViewController.m in Sources */,
+				FF93B9E91343F551007AE8EC /* ChooseServerViewController.m in Sources */,
+				FF6C75ED1343FA7D00AFBD0B /* ServerData.m in Sources */,
+				FF6C75FA13442F2100AFBD0B /* PhotoPriceViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

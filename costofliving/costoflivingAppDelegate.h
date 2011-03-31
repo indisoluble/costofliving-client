@@ -8,12 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@interface costoflivingAppDelegate : NSObject <UIApplicationDelegate> {
+#import "ChooseServerViewController.h"
+#import "ActualServerProtocol.h"
+#import "ServerData.h"
+
+@interface costoflivingAppDelegate : NSObject <UIApplicationDelegate, ActualServerProtocol> {
     UITabBarController *_tabBarController;
+    ChooseServerViewController *_chooseServerViewController;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 
 @property (nonatomic, retain) UITabBarController *tabBarController;
+@property (nonatomic, retain) ChooseServerViewController *chooseServerViewController;
 
 @end
