@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF4D04281344FF5300E77F18 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF4D04271344FF5300E77F18 /* CoreLocation.framework */; };
+		FF4D042B1345360E00E77F18 /* dog.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FF4D042A1345360E00E77F18 /* dog.jpg */; };
+		FF4D042F13453A2400E77F18 /* PhotoMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4D042D13453A2300E77F18 /* PhotoMapViewController.m */; };
+		FF4D043013453A2400E77F18 /* PhotoMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF4D042E13453A2300E77F18 /* PhotoMapViewController.xib */; };
+		FF4D043213453BE500E77F18 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF4D043113453BE500E77F18 /* MapKit.framework */; };
 		FF57414E133F76CF00E0735C /* MWFeedParser.m in Sources */ = {isa = PBXBuildFile; fileRef = FF57413E133F76CF00E0735C /* MWFeedParser.m */; };
 		FF57414F133F76CF00E0735C /* MWFeedInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FF574140133F76CF00E0735C /* MWFeedInfo.m */; };
 		FF574150133F76CF00E0735C /* MWFeedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FF574142133F76CF00E0735C /* MWFeedItem.m */; };
@@ -60,6 +65,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FF4D04271344FF5300E77F18 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		FF4D042A1345360E00E77F18 /* dog.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dog.jpg; sourceTree = "<group>"; };
+		FF4D042C13453A2200E77F18 /* PhotoMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoMapViewController.h; sourceTree = "<group>"; };
+		FF4D042D13453A2300E77F18 /* PhotoMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoMapViewController.m; sourceTree = "<group>"; };
+		FF4D042E13453A2300E77F18 /* PhotoMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoMapViewController.xib; sourceTree = "<group>"; };
+		FF4D043113453BE500E77F18 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		FF57413C133F76CF00E0735C /* MWFeedParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFeedParser.h; sourceTree = "<group>"; };
 		FF57413D133F76CF00E0735C /* MWFeedParser_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFeedParser_Private.h; sourceTree = "<group>"; };
 		FF57413E133F76CF00E0735C /* MWFeedParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWFeedParser.m; sourceTree = "<group>"; };
@@ -170,6 +181,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF4D043213453BE500E77F18 /* MapKit.framework in Frameworks */,
+				FF4D04281344FF5300E77F18 /* CoreLocation.framework in Frameworks */,
 				FF93B9E31343D40C007AE8EC /* MobileCoreServices.framework in Frameworks */,
 				FF64EAA1133FBF520075E97F /* libxml2.2.dylib in Frameworks */,
 				FFC69081133F714600D91EBE /* UIKit.framework in Frameworks */,
@@ -395,8 +408,10 @@
 			isa = PBXGroup;
 			children = (
 				FFC69084133F714600D91EBE /* CoreGraphics.framework */,
+				FF4D04271344FF5300E77F18 /* CoreLocation.framework */,
 				FFC69082133F714600D91EBE /* Foundation.framework */,
 				FF64EAA0133FBF520075E97F /* libxml2.2.dylib */,
+				FF4D043113453BE500E77F18 /* MapKit.framework */,
 				FF93B9E21343D40C007AE8EC /* MobileCoreServices.framework */,
 				FFC69080133F714600D91EBE /* UIKit.framework */,
 			);
@@ -421,6 +436,9 @@
 				FF574186133F97DC00E0735C /* DetailNewsViewController.h */,
 				FF574187133F97DC00E0735C /* DetailNewsViewController.m */,
 				FFC69092133F714700D91EBE /* MainWindow.xib */,
+				FF4D042C13453A2200E77F18 /* PhotoMapViewController.h */,
+				FF4D042D13453A2300E77F18 /* PhotoMapViewController.m */,
+				FF4D042E13453A2300E77F18 /* PhotoMapViewController.xib */,
 				FF6C75F713442F1D00AFBD0B /* PhotoPriceViewController.h */,
 				FF6C75F813442F1F00AFBD0B /* PhotoPriceViewController.m */,
 				FF6C75F913442F2000AFBD0B /* PhotoPriceViewController.xib */,
@@ -437,6 +455,7 @@
 		FFC69087133F714600D91EBE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FF4D042A1345360E00E77F18 /* dog.jpg */,
 				FFC69088133F714600D91EBE /* costofliving-Info.plist */,
 				FFC6908C133F714600D91EBE /* costofliving-Prefix.pch */,
 				FF93B9E51343F250007AE8EC /* costofliving-Servers.plist */,
@@ -501,6 +520,8 @@
 				FF64EB1B133FD4390075E97F /* CreateNoteViewController.xib in Resources */,
 				FF93B9E61343F250007AE8EC /* costofliving-Servers.plist in Resources */,
 				FF6C75FB13442F2100AFBD0B /* PhotoPriceViewController.xib in Resources */,
+				FF4D042B1345360E00E77F18 /* dog.jpg in Resources */,
+				FF4D043013453A2400E77F18 /* PhotoMapViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -551,6 +572,7 @@
 				FF93B9E91343F551007AE8EC /* ChooseServerViewController.m in Sources */,
 				FF6C75ED1343FA7D00AFBD0B /* ServerData.m in Sources */,
 				FF6C75FA13442F2100AFBD0B /* PhotoPriceViewController.m in Sources */,
+				FF4D042F13453A2400E77F18 /* PhotoMapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

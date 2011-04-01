@@ -7,21 +7,28 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
 #import "ActualServerProtocol.h"
 
 
-@interface CreateNoteViewController : UIViewController <UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate> {
+@interface CreateNoteViewController : UIViewController <UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, CLLocationManagerDelegate> {
     UITextField *_name;
     UITextField *_price;
     UIImageView *_imageView;
     
+    CLLocationManager *_locationManager;
+    CLLocation *_actualLocation;
+
     id<ActualServerProtocol> _delegate;
 }
 
 @property (nonatomic, retain) IBOutlet UITextField *name;
 @property (nonatomic, retain) IBOutlet UITextField *price;
 @property (nonatomic, retain) IBOutlet UIImageView *imageView;
+
+@property (nonatomic, retain) CLLocationManager *locationManager;
+@property (nonatomic, retain) CLLocation *actualLocation;
 
 @property (nonatomic, assign) id<ActualServerProtocol> delegate;
 

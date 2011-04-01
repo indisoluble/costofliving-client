@@ -7,6 +7,14 @@
 //
 
 #import "PhotoPriceViewController.h"
+#import "PhotoMapViewController.h"
+
+
+@interface PhotoPriceViewController (Private)
+
+- (void)showMap;
+
+@end
 
 
 @implementation PhotoPriceViewController
@@ -52,12 +60,26 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 	if (self.product != nil) {
-		self.imageView = [[[UIImageView alloc] initWithImage:self.product.image] autorelease];
+        self.title = self.product.name;
+        
+        if (self.product.image) {
+            self.imageView = [[[UIImageView alloc] initWithImage:self.product.image] autorelease];
+        }
+        else {
+            self.imageView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"dog.jpg"]] autorelease];
+        }
         
 		[self.view addSubview:self.imageView];
 		[(UIScrollView *)self.view setContentSize:[self.imageView.image size]];
 		[(UIScrollView *)self.view setMaximumZoomScale:2.0];
         [(UIScrollView *)self.view setMinimumZoomScale:0.1];
+        
+        UIBarButtonItem *mapButton =
+            [[[UIBarButtonItem alloc] initWithTitle:@"Map"
+                                             style:UIBarButtonItemStylePlain
+                                            target:self
+                                            action:@selector(showMap)] autorelease];
+        self.navigationItem.rightBarButtonItem = mapButton;
 	}
 
 }
@@ -77,6 +99,18 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+
+#pragma mark - Private methods
+- (void)showMap {
+    // Navigation logic may go here. Create and push another view controller.
+    PhotoMapViewController *detailViewController = [[PhotoMapViewController alloc] initWithNibName:@"PhotoMapViewController" bundle:nil];
+    detailViewController.product = self.product;
+    
+    // Pass the selected object to the new view controller.
+    [self.navigationController pushViewController:detailViewController animated:YES];
+    [detailViewController release];
 }
 
 @end

@@ -3,24 +3,34 @@
 <plist version="1.0">
 <array>
 	<dict>
-		<key>Selected</key>
-		<false/>
+		<key>Address</key>
+		<string>http://electric-robot-742.heroku.com</string>
 		<key>AllowPhotos</key>
 		<false/>
-		<key>Address</key>
-		<string>http://evening-earth-762.heroku.com</string>
 		<key>Name</key>
 		<string>Heroku</string>
+		<key>Selected</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>Address</key>
+		<string>http://10.0.1.3:3000</string>
+		<key>AllowPhotos</key>
+		<true/>
+		<key>Name</key>
+		<string>Local</string>
+		<key>Selected</key>
+		<false/>
 	</dict>
 	<dict>
 		<key>Selected</key>
 		<true/>
+		<key>Name</key>
+		<string>Manetheren</string>
 		<key>AllowPhotos</key>
 		<true/>
 		<key>Address</key>
-		<string>http://10.0.1.3:3000</string>
-		<key>Name</key>
-		<string>Local</string>
+		<string>http://87.220.111.249:5566</string>
 	</dict>
 </array>
 </plist>

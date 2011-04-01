@@ -7,6 +7,7 @@
 //
 
 #import <MobileCoreServices/MobileCoreServices.h>
+
 #import "CreateNoteViewController.h"
 #import "Product.h"
 
@@ -19,6 +20,9 @@
 
 - (void) returnToProduct: (UIImage *)image;
 
+- (void) startStandardLocationService;
+- (void) stopStandardLocationService;
+
 @end
 
 
@@ -29,6 +33,9 @@
 @synthesize name = _name;
 @synthesize price = _price;
 @synthesize imageView = _imageView;
+
+@synthesize locationManager = _locationManager;
+@synthesize actualLocation = _actualLocation;
 
 @synthesize delegate = _delegate;
 
@@ -50,6 +57,8 @@
     self.name = nil;
     self.price = nil;
     self.imageView = nil;
+    
+    self.locationManager = nil;
     
     [super dealloc];
 }
@@ -98,6 +107,9 @@
 	
     [[picker parentViewController] dismissModalViewControllerAnimated: YES];
     [picker release];
+    
+    // Return image
+	[self returnToProduct: nil];
 }
 
 // For responding to the user accepting a newly-captured picture or movie
@@ -136,6 +148,25 @@
 }
 
 
+# pragma mark - CLLocationManagerDelegate methods
+- (void)locationManager:(CLLocationManager *)manager
+    didUpdateToLocation:(CLLocation *)newLocation
+           fromLocation:(CLLocation *)oldLocation
+{
+    // If it's a relatively recent event, turn off updates to save power
+    NSDate* eventDate = newLocation.timestamp;
+    NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
+    if (abs(howRecent) < 15.0)
+    {
+        NSLog(@"latitude %+.6f, longitude %+.6f\n",
+              newLocation.coordinate.latitude,
+              newLocation.coordinate.longitude);
+        self.actualLocation = newLocation;
+    }
+    // else skip the event and process the next one.
+}
+
+
 #pragma mark - Actions
 - (IBAction) showCamera {
 	if (![self startCameraControllerFromViewController:self usingDelegate:self]) {
@@ -151,6 +182,8 @@
 	oneProduct.name = self.name.text;
 	oneProduct.price = self.price.text.integerValue;
     oneProduct.image = self.imageView.image;
+    oneProduct.latitude = self.actualLocation.coordinate.latitude;
+    oneProduct.longitude = self.actualLocation.coordinate.longitude;
 	[oneProduct saveRemoteToServer:[self.delegate actualSever]];
     
     self.name.text = nil;
@@ -180,7 +213,9 @@
         return NO;
 	}
 	
-	
+	// Start locaton service
+    [self startStandardLocationService];
+    
     UIImagePickerController *cameraUI = [[UIImagePickerController alloc] init];
     cameraUI.sourceType = UIImagePickerControllerSourceTypeCamera;
 	
@@ -198,10 +233,31 @@
 }
 
 - (void) returnToProduct: (UIImage *)image {
+    [self stopStandardLocationService];
+    
     if (image) {
         self.imageView.image = image;
     }
 }
 
+- (void) startStandardLocationService {
+    // Create the location manager if this object does not
+    // already have one.
+    if (nil == self.locationManager)
+        self.locationManager = [[[CLLocationManager alloc] init] autorelease];
+    
+    self.locationManager.delegate = self;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+    
+    // Set a movement threshold for new events.
+    self.locationManager.distanceFilter = 100;
+    
+    [self.locationManager startUpdatingLocation];
+}
+
+- (void) stopStandardLocationService {
+    [self.locationManager stopUpdatingLocation];
+    self.locationManager = nil;
+}
 
 @end

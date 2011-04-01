@@ -24,8 +24,23 @@
 @synthesize name = _name;
 @synthesize price = _price;
 @synthesize image = _image;
+@synthesize latitude = _latitude;
+@synthesize longitude = _longitude;
 
 @synthesize delegate = _delegate;
+
+#pragma mark - MKAnnotation properties
+- (CLLocationCoordinate2D) coordinate {
+	CLLocationCoordinate2D coord;
+	coord.latitude = self.latitude;
+	coord.longitude = self.longitude;
+	
+	return coord;
+}
+
+- (NSString *) subtitle {
+	return self.name;
+}
 
 
 #pragma mark - Memory management
@@ -86,7 +101,14 @@ static const short _base64DecodingTable[256] = {
         }
         
         NSLog(@"Prepare options");
-        NSDictionary *params_product = [NSDictionary dictionaryWithObjectsAndKeys:self.name, @"name", [NSNumber numberWithUnsignedInteger:self.price], @"price", imageBase64, @"imageAsStr", nil];
+        NSDictionary *params_product =
+            [NSDictionary dictionaryWithObjectsAndKeys:
+             self.name, @"name",
+             [NSNumber numberWithUnsignedInteger:self.price], @"price",
+             imageBase64, @"imageAsStr",
+             [NSNumber numberWithDouble:self.latitude], @"latitude",
+             [NSNumber numberWithDouble:self.longitude], @"longitude",
+             nil];
         NSDictionary *params = [NSDictionary dictionaryWithObject:params_product forKey:@"product"];
         NSDictionary *options = [NSDictionary dictionaryWithObject:[params JSONRepresentation] forKey:@"body"];
         
@@ -114,6 +136,8 @@ static const short _base64DecodingTable[256] = {
 	NSString *oneProductName = nil;
 	NSString *oneProductPrice = nil;
     NSString *oneProductImage = nil;
+    NSString *oneProductLatitude = nil;
+    NSString *oneProductLongitude = nil;
     
 	NSLog(@"Request received");
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
@@ -150,6 +174,16 @@ static const short _base64DecodingTable[256] = {
                     oneProductImage = [dicProduct objectForKey:@"imageAsStr"];
                     if (oneProductImage) {
                         oneProduct.image = [UIImage imageWithData:[Product decodeBase64WithString:oneProductImage]];
+                    }
+                    
+                    oneProductLatitude = [dicProduct objectForKey:@"latitude"];
+                    if (oneProductLatitude) {
+                        oneProduct.latitude = oneProductLatitude.doubleValue;
+                    }
+                    
+                    oneProductLongitude = [dicProduct objectForKey:@"longitude"];
+                    if (oneProductLongitude) {
+                        oneProduct.longitude = oneProductLongitude.doubleValue;
                     }
                     
 					[list addObject:oneProduct];
