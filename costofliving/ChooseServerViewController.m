@@ -48,7 +48,11 @@
         }
         
         _selectedTemp = _selected;
-        self.title = [[_servers objectAtIndex:_selected] name];
+        
+        // Set title and icon
+        self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:[[_servers objectAtIndex:_selected] name]
+                                                         image:[UIImage imageNamed:@"157-wrench.png"]
+                                                           tag:0] autorelease];
     }
     return self;
 }

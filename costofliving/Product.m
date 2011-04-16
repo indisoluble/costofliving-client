@@ -21,13 +21,25 @@
 
 
 #pragma mark - Synthesized properties
+@synthesize idProduct = _idProduct;
 @synthesize name = _name;
 @synthesize price = _price;
 @synthesize image = _image;
 @synthesize latitude = _latitude;
 @synthesize longitude = _longitude;
+@synthesize address = _address;
 
 @synthesize delegate = _delegate;
+
+
+#pragma mark - Init object
+- (id)init {
+    self = [super init];
+    if (self) {
+    }
+    return self;
+}
+
 
 #pragma mark - MKAnnotation properties
 - (CLLocationCoordinate2D) coordinate {
@@ -38,8 +50,12 @@
 	return coord;
 }
 
-- (NSString *) subtitle {
+- (NSString *) title {
 	return self.name;
+}
+
+- (NSString *)subtitle {
+    return self.address;
 }
 
 
@@ -48,6 +64,7 @@
 {
     self.name = nil;
     self.image = nil;
+    self.address = nil;
     
     [super dealloc];
 }
@@ -121,25 +138,53 @@ static const short _base64DecodingTable[256] = {
     }
 }
 
+- (void)deleteRemoteFromServer:(ServerData *)server {
+    NSLog(@"Sending DELETE request");
+    [HRRestModel setBaseURL:[NSURL URLWithString:server.address]];
+    NSString *path = [NSString stringWithFormat:@"/products/%i", self.idProduct];
+	[HRRestModel deletePath:path withOptions:nil object:nil];
+}
+
 - (void)refreshFromSerer:(ServerData *)server {
-	NSLog(@"Sendig request");
+	NSLog(@"Sendig GET request");
 	[HRRestModel setDelegate:self];
     [HRRestModel setBaseURL:[NSURL URLWithString:server.address]];
 	[HRRestModel getPath:@"/products.json" withOptions:nil object:nil];
 }
 
 #pragma mark - HRResponseDelegate methods
+- (void)restConnection:(NSURLConnection *)connection didFailWithError:(NSError *)error object:(id)object {
+    NSLog(@"Failure to connect to the server");
+    [self.delegate useProductsList:[NSArray array]];
+    [HRRestModel setDelegate:nil];
+}
+
+- (void)restConnection:(NSURLConnection *)connection didReceiveError:(NSError *)error response:(NSHTTPURLResponse *)response object:(id)object {
+    NSLog(@"Invalid response");
+    [self.delegate useProductsList:[NSArray array]];
+    [HRRestModel setDelegate:nil];
+}
+
+- (void)restConnection:(NSURLConnection *)connection didReceiveParseError:(NSError *)error responseBody:(NSString *)string {
+    NSLog(@"Can't parse the data returned");
+    [self.delegate useProductsList:[NSArray array]];
+    [HRRestModel setDelegate:nil];
+}
+
 - (void)restConnection:(NSURLConnection *)connection didReturnResource:(id)resource object:(id)object {
 	NSDictionary *dicProduct = nil;
 	Product *oneProduct = nil;
 	
+    NSString *oneProductId = nil;
 	NSString *oneProductName = nil;
 	NSString *oneProductPrice = nil;
     NSString *oneProductImage = nil;
     NSString *oneProductLatitude = nil;
     NSString *oneProductLongitude = nil;
+    NSString *oneProductAddress = nil;
     
 	NSLog(@"Request received");
+    
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	if (self.delegate != nil) {
 		NSMutableArray *list = [[[NSMutableArray alloc] init] autorelease];
@@ -157,9 +202,14 @@ static const short _base64DecodingTable[256] = {
 				}
 				else {
                     
-					NSLog(@"Product received");
+                    NSLog(@"Product received");
                     
 					oneProduct = [[[Product alloc] init] autorelease];
+                    
+                    oneProductId = [dicProduct objectForKey:@"id"];
+                    if (oneProductId) {
+                        oneProduct.idProduct = oneProductId.integerValue;
+                    }
                     
 					oneProductName = [dicProduct objectForKey:@"name"];
 					if (oneProductName) {
@@ -186,6 +236,11 @@ static const short _base64DecodingTable[256] = {
                         oneProduct.longitude = oneProductLongitude.doubleValue;
                     }
                     
+                    oneProductAddress = [dicProduct objectForKey:@"address"];
+                    if (oneProductAddress && (oneProductAddress != (NSString *)[NSNull null])) {
+                        oneProduct.address = oneProductAddress;
+                    }
+                    
 					[list addObject:oneProduct];
                     
 				}
@@ -197,6 +252,8 @@ static const short _base64DecodingTable[256] = {
         [self.delegate useProductsList:list];
 	}
     [pool release];
+    
+    [HRRestModel setDelegate:nil];
 }
 
 

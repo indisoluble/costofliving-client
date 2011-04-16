@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF3E60BC1354D0BA0061E745 /* 167-upload-photo.png in Resources */ = {isa = PBXBuildFile; fileRef = FF3E60BB1354D0BA0061E745 /* 167-upload-photo.png */; };
+		FF3E60BE1354D10A0061E745 /* 165-glasses-3.png in Resources */ = {isa = PBXBuildFile; fileRef = FF3E60BD1354D10A0061E745 /* 165-glasses-3.png */; };
+		FF3E60C01354D1330061E745 /* 157-wrench.png in Resources */ = {isa = PBXBuildFile; fileRef = FF3E60BF1354D1330061E745 /* 157-wrench.png */; };
+		FF3E60C21354D1B70061E745 /* 96-book.png in Resources */ = {isa = PBXBuildFile; fileRef = FF3E60C11354D1B70061E745 /* 96-book.png */; };
+		FF3E60CC1354D85D0061E745 /* avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = FF3E60CB1354D85D0061E745 /* avatar.png */; };
 		FF4D04281344FF5300E77F18 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF4D04271344FF5300E77F18 /* CoreLocation.framework */; };
 		FF4D042B1345360E00E77F18 /* dog.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FF4D042A1345360E00E77F18 /* dog.jpg */; };
 		FF4D042F13453A2400E77F18 /* PhotoMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4D042D13453A2300E77F18 /* PhotoMapViewController.m */; };
@@ -65,6 +70,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FF3E60BB1354D0BA0061E745 /* 167-upload-photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "167-upload-photo.png"; sourceTree = "<group>"; };
+		FF3E60BD1354D10A0061E745 /* 165-glasses-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "165-glasses-3.png"; sourceTree = "<group>"; };
+		FF3E60BF1354D1330061E745 /* 157-wrench.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "157-wrench.png"; sourceTree = "<group>"; };
+		FF3E60C11354D1B70061E745 /* 96-book.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "96-book.png"; sourceTree = "<group>"; };
+		FF3E60CB1354D85D0061E745 /* avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar.png; sourceTree = "<group>"; };
 		FF4D04271344FF5300E77F18 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		FF4D042A1345360E00E77F18 /* dog.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dog.jpg; sourceTree = "<group>"; };
 		FF4D042C13453A2200E77F18 /* PhotoMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoMapViewController.h; sourceTree = "<group>"; };
@@ -390,6 +400,7 @@
 		FFC69071133F714600D91EBE = {
 			isa = PBXGroup;
 			children = (
+				FF3E60CB1354D85D0061E745 /* avatar.png */,
 				FFC69086133F714600D91EBE /* costofliving */,
 				FFC6907F133F714600D91EBE /* Frameworks */,
 				FFC6907D133F714600D91EBE /* Products */,
@@ -455,6 +466,10 @@
 		FFC69087133F714600D91EBE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FF3E60C11354D1B70061E745 /* 96-book.png */,
+				FF3E60BF1354D1330061E745 /* 157-wrench.png */,
+				FF3E60BD1354D10A0061E745 /* 165-glasses-3.png */,
+				FF3E60BB1354D0BA0061E745 /* 167-upload-photo.png */,
 				FF4D042A1345360E00E77F18 /* dog.jpg */,
 				FFC69088133F714600D91EBE /* costofliving-Info.plist */,
 				FFC6908C133F714600D91EBE /* costofliving-Prefix.pch */,
@@ -522,6 +537,11 @@
 				FF6C75FB13442F2100AFBD0B /* PhotoPriceViewController.xib in Resources */,
 				FF4D042B1345360E00E77F18 /* dog.jpg in Resources */,
 				FF4D043013453A2400E77F18 /* PhotoMapViewController.xib in Resources */,
+				FF3E60BC1354D0BA0061E745 /* 167-upload-photo.png in Resources */,
+				FF3E60BE1354D10A0061E745 /* 165-glasses-3.png in Resources */,
+				FF3E60C01354D1330061E745 /* 157-wrench.png in Resources */,
+				FF3E60C21354D1B70061E745 /* 96-book.png in Resources */,
+				FF3E60CC1354D85D0061E745 /* avatar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

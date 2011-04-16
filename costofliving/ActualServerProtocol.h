@@ -13,6 +13,6 @@
 
 @protocol ActualServerProtocol <NSObject>
 
-- (ServerData *)actualSever;
+- (ServerData *)actualServer;
 
 @end

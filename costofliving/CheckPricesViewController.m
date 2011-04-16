@@ -8,6 +8,7 @@
 
 #import "CheckPricesViewController.h"
 #import "PhotoPriceViewController.h"
+#import "PhotoMapViewController.h"
 
 
 @interface CheckPricesViewController (Private)
@@ -38,7 +39,10 @@
         // Prepare list of product
         self.productList = [NSArray array];
         
-        self.title = @"Prices";
+        // Set title and icon
+        self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:@"Prices"
+                                                         image:[UIImage imageNamed:@"165-glasses-3.png"]
+                                                           tag:0] autorelease];
     }
     return self;
 }
@@ -70,6 +74,13 @@
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
+    UIBarButtonItem *mapButton =
+    [[[UIBarButtonItem alloc] initWithTitle:@"Map"
+                                      style:UIBarButtonItemStylePlain
+                                     target:self
+                                     action:@selector(showMap)] autorelease];
+    self.navigationItem.leftBarButtonItem = mapButton;
+    
     self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh 
 																							target:self 
 																							action:@selector(refreshProducts)] autorelease];
@@ -145,28 +156,28 @@
     return cell;
 }
 
-/*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-*/
 
-/*
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        Product *oneProduct = [self.productList objectAtIndex:indexPath.row];
+        if (oneProduct) {
+            // Delete the row from the data source
+            [oneProduct deleteRemoteFromServer:[self.delegate actualServer]];
+            [self.productList removeObjectAtIndex:indexPath.row];
+            
+            // Delete the row from the view
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        }
     }   
 }
-*/
 
 /*
 // Override to support rearranging the table view.
@@ -199,12 +210,13 @@
 
 
 #pragma mark - ProductProtocol methods
-- (void)useProductsList:(NSArray *)list
+- (void)useProductsList:(NSMutableArray *)list
 {
     NSLog(@"Finished refreshing");
     self.productList = list;
     
     self.title = @"Prices";
+    self.navigationItem.leftBarButtonItem.enabled = YES;
 	self.tableView.userInteractionEnabled = YES;
 	self.tableView.alpha = 1;
 	[self.tableView reloadData];
@@ -215,10 +227,21 @@
 - (void) refreshProducts
 {
     self.title = @"Refreshing...";
+    self.navigationItem.leftBarButtonItem.enabled = NO;
     self.tableView.userInteractionEnabled = NO;
 	self.tableView.alpha = 0.3;
     
-    [self.product refreshFromSerer:[self.delegate actualSever]];
+    [self.product refreshFromSerer:[self.delegate actualServer]];
+}
+
+- (void)showMap {
+    // Navigation logic may go here. Create and push another view controller.
+    PhotoMapViewController *detailViewController = [[PhotoMapViewController alloc] initWithNibName:@"PhotoMapViewController" bundle:nil];
+    detailViewController.products = self.productList;
+    
+    // Pass the selected object to the new view controller.
+    [self.navigationController pushViewController:detailViewController animated:YES];
+    [detailViewController release];
 }
 
 @end

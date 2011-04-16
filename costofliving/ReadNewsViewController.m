@@ -34,7 +34,7 @@
     self = [super initWithStyle:style];
     if (self) {
         // Setup parser
-        NSURL *feedURL = [NSURL URLWithString:@"feed://web.me.com/indisoluble/Test/Blog/rss.xml"];
+        NSURL *feedURL = [NSURL URLWithString:@"feed://web.me.com/indisoluble/Cost_of_Living/Blog/rss.xml"];
         
         self.feedParser = [[[MWFeedParser alloc] initWithFeedURL:feedURL] autorelease];
         self.feedParser.delegate = self;
@@ -50,8 +50,10 @@
         [self.dateFormatter setDateStyle:NSDateFormatterShortStyle];
         [self.dateFormatter setTimeStyle:NSDateFormatterShortStyle];
         
-        // Set title
-        self.title = @"News";
+        // Set title and icon
+        self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:@"News"
+                                                         image:[UIImage imageNamed:@"96-book.png"]
+                                                           tag:0] autorelease];
     }
     return self;
 }

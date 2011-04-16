@@ -14,13 +14,13 @@
 
 @interface CheckPricesViewController : UITableViewController <ProductProtocol> {
     Product *_product;
-    NSArray *_productList;
+    NSMutableArray *_productList;
     
     id<ActualServerProtocol> _delegate;
 }
 
 @property (nonatomic, retain) Product *product;
-@property (nonatomic, retain) NSArray *productList;
+@property (nonatomic, retain) NSMutableArray *productList;
 
 @property (nonatomic, assign) id<ActualServerProtocol> delegate;
 

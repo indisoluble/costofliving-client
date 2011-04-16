@@ -15,11 +15,11 @@
 @interface PhotoMapViewController : UIViewController {
     MKMapView *_mapView;
     
-    Product *_product;
+    NSArray *_products;
 }
 
 @property (nonatomic, retain) IBOutlet MKMapView *mapView;
 
-@property (nonatomic, retain) Product *product;
+@property (nonatomic, retain) NSArray *products;
 
 @end

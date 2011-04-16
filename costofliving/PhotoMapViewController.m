@@ -14,7 +14,7 @@
 
 #pragma mark - Synthesized methods
 @synthesize mapView = _mapView;
-@synthesize product = _product;
+@synthesize products = _products;
 
 
 #pragma mark - Init object
@@ -23,6 +23,9 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        if (!self.title) {
+            self.title = @"Map";
+        }
     }
     return self;
 }
@@ -32,7 +35,7 @@
 - (void)dealloc
 {
     self.mapView = nil;
-    self.product = nil;
+    self.products = nil;
     
     [super dealloc];
 }
@@ -52,9 +55,14 @@
     [super viewDidLoad];
     
     // Do any additional setup after loading the view from its nib.
-    if (self.product) {
-        [self.mapView addAnnotation:self.product];
-    }
+    if (self.products) {
+        for (Product *oneProduct in self.products) {
+            if (oneProduct.image) {
+                // If it has an image, the coordinates are correct
+                [self.mapView addAnnotation:oneProduct];
+            }
+        }
+    }    
 }
 
 - (void)viewDidUnload

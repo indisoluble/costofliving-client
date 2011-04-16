@@ -113,7 +113,7 @@
 
 
 #pragma mark - ActualServerProtocol methods
-- (ServerData *)actualSever {
+- (ServerData *)actualServer {
     return [self.chooseServerViewController actualServer];
 }
 

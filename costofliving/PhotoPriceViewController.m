@@ -74,14 +74,15 @@
 		[(UIScrollView *)self.view setMaximumZoomScale:2.0];
         [(UIScrollView *)self.view setMinimumZoomScale:0.1];
         
-        UIBarButtonItem *mapButton =
+        if (self.product.image) {
+            UIBarButtonItem *mapButton =
             [[[UIBarButtonItem alloc] initWithTitle:@"Map"
-                                             style:UIBarButtonItemStylePlain
-                                            target:self
-                                            action:@selector(showMap)] autorelease];
-        self.navigationItem.rightBarButtonItem = mapButton;
+                                              style:UIBarButtonItemStylePlain
+                                             target:self
+                                             action:@selector(showMap)] autorelease];
+            self.navigationItem.rightBarButtonItem = mapButton;
+        }
 	}
-
 }
 
 - (UIView *) viewForZoomingInScrollView:(UIScrollView *) scrollView {
@@ -106,7 +107,7 @@
 - (void)showMap {
     // Navigation logic may go here. Create and push another view controller.
     PhotoMapViewController *detailViewController = [[PhotoMapViewController alloc] initWithNibName:@"PhotoMapViewController" bundle:nil];
-    detailViewController.product = self.product;
+    detailViewController.products = [NSArray arrayWithObject:self.product];
     
     // Pass the selected object to the new view controller.
     [self.navigationController pushViewController:detailViewController animated:YES];

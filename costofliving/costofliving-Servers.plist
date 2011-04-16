@@ -23,14 +23,44 @@
 		<false/>
 	</dict>
 	<dict>
-		<key>Selected</key>
+		<key>Address</key>
+		<string>http://87.220.110.71:5566</string>
+		<key>AllowPhotos</key>
 		<true/>
 		<key>Name</key>
 		<string>Manetheren</string>
+		<key>Selected</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>Address</key>
+		<string>http://10.0.1.2:3000</string>
 		<key>AllowPhotos</key>
 		<true/>
+		<key>Name</key>
+		<string>Manetheren (Local)</string>
+		<key>Selected</key>
+		<false/>
+	</dict>
+	<dict>
 		<key>Address</key>
-		<string>http://87.220.111.249:5566</string>
+		<string>http://174.122.137.60:3000</string>
+		<key>AllowPhotos</key>
+		<true/>
+		<key>Name</key>
+		<string>Webby (3000)</string>
+		<key>Selected</key>
+		<true/>
+	</dict>
+	<dict>
+		<key>Address</key>
+		<string>http://174.122.137.60:80</string>
+		<key>AllowPhotos</key>
+		<true/>
+		<key>Name</key>
+		<string>Webby (80)</string>
+		<key>Selected</key>
+		<false/>
 	</dict>
 </array>
 </plist>

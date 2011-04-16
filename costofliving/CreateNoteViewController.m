@@ -45,7 +45,9 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = @"Self";
+        self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:@"Self"
+                                                         image:[UIImage imageNamed:@"167-upload-photo.png"]
+                                                           tag:0] autorelease];
     }
     return self;
 }
@@ -184,7 +186,7 @@
     oneProduct.image = self.imageView.image;
     oneProduct.latitude = self.actualLocation.coordinate.latitude;
     oneProduct.longitude = self.actualLocation.coordinate.longitude;
-	[oneProduct saveRemoteToServer:[self.delegate actualSever]];
+	[oneProduct saveRemoteToServer:[self.delegate actualServer]];
     
     self.name.text = nil;
     self.price.text = nil;
