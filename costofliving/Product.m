@@ -87,12 +87,20 @@ static const short _base64DecodingTable[256] = {
     {
         NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
         
-        NSString *imageBase64 = @"";
+        NSLog(@"Prepare options");
+        NSMutableDictionary *params_product = [[[NSMutableDictionary alloc] initWithCapacity:5] autorelease];
+        [params_product setObject:self.name forKey:@"name"];
+        [params_product setObject:[NSNumber numberWithUnsignedInteger:self.price] forKey:@"price"];
+        
         if (self.image) {
+            [params_product setObject:[NSNumber numberWithDouble:self.latitude] forKey:@"latitude"];
+            [params_product setObject:[NSNumber numberWithDouble:self.longitude] forKey:@"longitude"];
+            
             if (server.allowPhotos) {
                 NSLog(@"Convert image to Base64");
                 NSData *imageData = UIImageJPEGRepresentation(self.image, 0.0);
-                imageBase64 = [Product newStringInBase64FromData:imageData];
+                NSString *imageBase64 = [Product newStringInBase64FromData:imageData];
+                [params_product setObject:imageBase64 forKey:@"imageAsStr"];
             }
             else {
                 NSLog(@"Server %@ not allow photos", server.name);
@@ -100,20 +108,6 @@ static const short _base64DecodingTable[256] = {
         }
         else {
             NSLog(@"No image to convert to Base64");
-        }
-        
-        NSLog(@"Prepare options");
-        NSMutableDictionary *params_product =
-            [NSDictionary dictionaryWithObjectsAndKeys:
-             self.name, @"name",
-             [NSNumber numberWithUnsignedInteger:self.price], @"price",
-             nil];
-        if (self.image) {
-            [params_product setObject:[NSNumber numberWithDouble:self.latitude] forKey:@"latitude"];
-            [params_product setObject:[NSNumber numberWithDouble:self.longitude] forKey:@"longitude"];
-        }
-        if ([imageBase64 length] > 0) {
-            [params_product setObject:imageBase64 forKey:@"imageAsStr"];
         }
         
         NSDictionary *params = [NSDictionary dictionaryWithObject:params_product forKey:@"product"];
