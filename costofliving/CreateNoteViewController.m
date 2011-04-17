@@ -48,6 +48,7 @@
         self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:@"Self"
                                                          image:[UIImage imageNamed:@"167-upload-photo.png"]
                                                            tag:0] autorelease];
+        self.title = @"Self";
     }
     return self;
 }

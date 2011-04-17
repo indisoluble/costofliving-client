@@ -103,14 +103,19 @@ static const short _base64DecodingTable[256] = {
         }
         
         NSLog(@"Prepare options");
-        NSDictionary *params_product =
+        NSMutableDictionary *params_product =
             [NSDictionary dictionaryWithObjectsAndKeys:
              self.name, @"name",
              [NSNumber numberWithUnsignedInteger:self.price], @"price",
-             imageBase64, @"imageAsStr",
-             [NSNumber numberWithDouble:self.latitude], @"latitude",
-             [NSNumber numberWithDouble:self.longitude], @"longitude",
              nil];
+        if (self.image) {
+            [params_product setObject:[NSNumber numberWithDouble:self.latitude] forKey:@"latitude"];
+            [params_product setObject:[NSNumber numberWithDouble:self.longitude] forKey:@"longitude"];
+        }
+        if ([imageBase64 length] > 0) {
+            [params_product setObject:imageBase64 forKey:@"imageAsStr"];
+        }
+        
         NSDictionary *params = [NSDictionary dictionaryWithObject:params_product forKey:@"product"];
         NSDictionary *options = [NSDictionary dictionaryWithObject:[params JSONRepresentation] forKey:@"body"];
         
@@ -199,37 +204,44 @@ static const short _base64DecodingTable[256] = {
                     
                     
                     oneProductId = [dicProduct objectForKey:@"id"];
-                    if (oneProductId) {
+                    if ((oneProductId != (NSString *)[NSNull null]) &&
+                        oneProductId) {
                         cacheProduct.idProduct = [NSNumber numberWithInteger:oneProductId.integerValue];
                     }
                     
 					oneProductName = [dicProduct objectForKey:@"name"];
-					if (oneProductName) {
+					if ((oneProductName != (NSString *)[NSNull null]) &&
+                        oneProductName) {
 						cacheProduct.name = oneProductName;
 					}
                     
                     oneProductPrice = [dicProduct objectForKey:@"price"];
-                    if (oneProductPrice) {
+                    if ((oneProductPrice != (NSString *)[NSNull null]) &&
+                        oneProductPrice) {
                         cacheProduct.price = [NSNumber numberWithInteger:oneProductPrice.integerValue];
                     }
                     
                     oneProductImage = [dicProduct objectForKey:@"imageAsStr"];
-                    if (oneProductImage && [oneProductImage length] > 0) {
+                    if ((oneProductImage != (NSString *)[NSNull null]) &&
+                        oneProductImage && [oneProductImage length] > 0) {
                         cacheProduct.image = [Product decodeBase64WithString:oneProductImage];
                     }
                     
                     oneProductLatitude = [dicProduct objectForKey:@"latitude"];
-                    if (oneProductLatitude) {
+                    if ((oneProductLatitude != (NSString *)[NSNull null]) &&
+                        oneProductLatitude) {
                         cacheProduct.latitude = [NSNumber numberWithDouble:oneProductLatitude.doubleValue];
                     }
                     
                     oneProductLongitude = [dicProduct objectForKey:@"longitude"];
-                    if (oneProductLongitude) {
+                    if ((oneProductLongitude != (NSString *)[NSNull null]) &&
+                        oneProductLongitude) {
                         cacheProduct.longitude = [NSNumber numberWithDouble:oneProductLongitude.doubleValue];
                     }
                     
                     oneProductAddress = [dicProduct objectForKey:@"address"];
-                    if (oneProductAddress && (oneProductAddress != (NSString *)[NSNull null])) {
+                    if ((oneProductAddress != (NSString *)[NSNull null]) &&
+                        oneProductAddress) {
                         cacheProduct.address = oneProductAddress;
                     }
                     
