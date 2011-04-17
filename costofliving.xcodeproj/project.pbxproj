@@ -79,7 +79,7 @@
 		FF3E60BD1354D10A0061E745 /* 165-glasses-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "165-glasses-3.png"; sourceTree = "<group>"; };
 		FF3E60BF1354D1330061E745 /* 157-wrench.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "157-wrench.png"; sourceTree = "<group>"; };
 		FF3E60C11354D1B70061E745 /* 96-book.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "96-book.png"; sourceTree = "<group>"; };
-		FF3E60CB1354D85D0061E745 /* avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar.png; sourceTree = "<group>"; };
+		FF3E60CB1354D85D0061E745 /* avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = avatar.png; path = ../avatar.png; sourceTree = "<group>"; };
 		FF4D04271344FF5300E77F18 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		FF4D042A1345360E00E77F18 /* dog.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dog.jpg; sourceTree = "<group>"; };
 		FF4D042C13453A2200E77F18 /* PhotoMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoMapViewController.h; sourceTree = "<group>"; };
@@ -408,7 +408,6 @@
 		FFC69071133F714600D91EBE = {
 			isa = PBXGroup;
 			children = (
-				FF3E60CB1354D85D0061E745 /* avatar.png */,
 				FFC69086133F714600D91EBE /* costofliving */,
 				FFC6907F133F714600D91EBE /* Frameworks */,
 				FFC6907D133F714600D91EBE /* Products */,
@@ -481,6 +480,7 @@
 				FF3E60BF1354D1330061E745 /* 157-wrench.png */,
 				FF3E60BD1354D10A0061E745 /* 165-glasses-3.png */,
 				FF3E60BB1354D0BA0061E745 /* 167-upload-photo.png */,
+				FF3E60CB1354D85D0061E745 /* avatar.png */,
 				FF4D042A1345360E00E77F18 /* dog.jpg */,
 				FFC69088133F714600D91EBE /* costofliving-Info.plist */,
 				FFC6908C133F714600D91EBE /* costofliving-Prefix.pch */,
