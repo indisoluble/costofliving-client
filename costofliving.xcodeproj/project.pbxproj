@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF028A3F135AB1ED00016257 /* ProductCache.m in Sources */ = {isa = PBXBuildFile; fileRef = FF028A3E135AB1ED00016257 /* ProductCache.m */; };
 		FF3E60BC1354D0BA0061E745 /* 167-upload-photo.png in Resources */ = {isa = PBXBuildFile; fileRef = FF3E60BB1354D0BA0061E745 /* 167-upload-photo.png */; };
 		FF3E60BE1354D10A0061E745 /* 165-glasses-3.png in Resources */ = {isa = PBXBuildFile; fileRef = FF3E60BD1354D10A0061E745 /* 165-glasses-3.png */; };
 		FF3E60C01354D1330061E745 /* 157-wrench.png in Resources */ = {isa = PBXBuildFile; fileRef = FF3E60BF1354D1330061E745 /* 157-wrench.png */; };
@@ -67,9 +68,13 @@
 		FFC6908E133F714600D91EBE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC6908D133F714600D91EBE /* main.m */; };
 		FFC69091133F714600D91EBE /* costoflivingAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC69090133F714600D91EBE /* costoflivingAppDelegate.m */; };
 		FFC69094133F714700D91EBE /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFC69092133F714700D91EBE /* MainWindow.xib */; };
+		FFE72571135A439F0039DC63 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFE72570135A439F0039DC63 /* CoreData.framework */; };
+		FFE72575135A44030039DC63 /* costoflivingModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FFE72573135A44030039DC63 /* costoflivingModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FF028A3D135AB1ED00016257 /* ProductCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductCache.h; sourceTree = "<group>"; };
+		FF028A3E135AB1ED00016257 /* ProductCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductCache.m; sourceTree = "<group>"; };
 		FF3E60BB1354D0BA0061E745 /* 167-upload-photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "167-upload-photo.png"; sourceTree = "<group>"; };
 		FF3E60BD1354D10A0061E745 /* 165-glasses-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "165-glasses-3.png"; sourceTree = "<group>"; };
 		FF3E60BF1354D1330061E745 /* 157-wrench.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "157-wrench.png"; sourceTree = "<group>"; };
@@ -184,6 +189,8 @@
 		FFC6908F133F714600D91EBE /* costoflivingAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = costoflivingAppDelegate.h; sourceTree = "<group>"; };
 		FFC69090133F714600D91EBE /* costoflivingAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = costoflivingAppDelegate.m; sourceTree = "<group>"; };
 		FFC69093133F714700D91EBE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		FFE72570135A439F0039DC63 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		FFE72574135A44030039DC63 /* costoflivingModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = costoflivingModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +198,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFE72571135A439F0039DC63 /* CoreData.framework in Frameworks */,
 				FF4D043213453BE500E77F18 /* MapKit.framework in Frameworks */,
 				FF4D04281344FF5300E77F18 /* CoreLocation.framework in Frameworks */,
 				FF93B9E31343D40C007AE8EC /* MobileCoreServices.framework in Frameworks */,
@@ -418,6 +426,7 @@
 		FFC6907F133F714600D91EBE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FFE72570135A439F0039DC63 /* CoreData.framework */,
 				FFC69084133F714600D91EBE /* CoreGraphics.framework */,
 				FF4D04271344FF5300E77F18 /* CoreLocation.framework */,
 				FFC69082133F714600D91EBE /* Foundation.framework */,
@@ -455,6 +464,8 @@
 				FF6C75F913442F2000AFBD0B /* PhotoPriceViewController.xib */,
 				FF64EB22133FDA4A0075E97F /* Product.h */,
 				FF64EB23133FDA4A0075E97F /* Product.m */,
+				FF028A3D135AB1ED00016257 /* ProductCache.h */,
+				FF028A3E135AB1ED00016257 /* ProductCache.m */,
 				FF574155133F773600E0735C /* ReadNewsViewController.h */,
 				FF574156133F773600E0735C /* ReadNewsViewController.m */,
 				FF6C75EB1343FA7D00AFBD0B /* ServerData.h */,
@@ -474,6 +485,7 @@
 				FFC69088133F714600D91EBE /* costofliving-Info.plist */,
 				FFC6908C133F714600D91EBE /* costofliving-Prefix.pch */,
 				FF93B9E51343F250007AE8EC /* costofliving-Servers.plist */,
+				FFE72573135A44030039DC63 /* costoflivingModel.xcdatamodeld */,
 				FFC69089133F714600D91EBE /* InfoPlist.strings */,
 				FFC6908D133F714600D91EBE /* main.m */,
 			);
@@ -593,6 +605,8 @@
 				FF6C75ED1343FA7D00AFBD0B /* ServerData.m in Sources */,
 				FF6C75FA13442F2100AFBD0B /* PhotoPriceViewController.m in Sources */,
 				FF4D042F13453A2400E77F18 /* PhotoMapViewController.m in Sources */,
+				FFE72575135A44030039DC63 /* costoflivingModel.xcdatamodeld in Sources */,
+				FF028A3F135AB1ED00016257 /* ProductCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -712,6 +726,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FFE72573135A44030039DC63 /* costoflivingModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FFE72574135A44030039DC63 /* costoflivingModel.xcdatamodel */,
+			);
+			currentVersion = FFE72574135A44030039DC63 /* costoflivingModel.xcdatamodel */;
+			path = costoflivingModel.xcdatamodeld;
+			sourceTree = SOURCE_ROOT;
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FFC69073133F714600D91EBE /* Project object */;
 }

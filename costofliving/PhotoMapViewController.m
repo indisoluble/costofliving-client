@@ -7,6 +7,7 @@
 //
 
 #import "PhotoMapViewController.h"
+#import "ProductCache.h"
 
 
 @implementation PhotoMapViewController
@@ -56,7 +57,7 @@
     
     // Do any additional setup after loading the view from its nib.
     if (self.products) {
-        for (Product *oneProduct in self.products) {
+        for (ProductCache *oneProduct in self.products) {
             if (oneProduct.image) {
                 // If it has an image, the coordinates are correct
                 [self.mapView addAnnotation:oneProduct];

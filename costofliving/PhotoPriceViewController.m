@@ -63,7 +63,7 @@
         self.title = self.product.name;
         
         if (self.product.image) {
-            self.imageView = [[[UIImageView alloc] initWithImage:self.product.image] autorelease];
+            self.imageView = [[[UIImageView alloc] initWithImage:[UIImage imageWithData:self.product.image]] autorelease];
         }
         else {
             self.imageView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"dog.jpg"]] autorelease];

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <MapKit/MapKit.h>
+#import <CoreData/CoreData.h>
 
 
 #import "HTTPRiot.h"
@@ -16,12 +16,13 @@
 
 @protocol ProductProtocol
 
-- (void)useProductsList:(NSMutableArray *)list;
+- (NSManagedObjectContext *) managedObjectContext;;
+- (void)useProductsList;
 
 @end
 
 
-@interface Product : NSObject <HRResponseDelegate, MKAnnotation> {
+@interface Product : NSObject <HRResponseDelegate> {
     NSInteger _idProduct;
     NSString *_name;
     NSUInteger _price; 
@@ -42,10 +43,6 @@
 @property (nonatomic, retain) NSString *address;
 
 @property (nonatomic, assign) id<ProductProtocol> delegate;
-
-// MKAnnotation properties
-@property (readonly, nonatomic) CLLocationCoordinate2D coordinate;
-@property (readonly, nonatomic) NSString *subtitle;
 
 - (void)saveRemoteToServer:(ServerData *)server;
 - (void)deleteRemoteFromServer:(ServerData *)server;

@@ -9,8 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
-#import "Product.h"
-
 
 @interface PhotoMapViewController : UIViewController {
     MKMapView *_mapView;

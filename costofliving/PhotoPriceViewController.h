@@ -8,15 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-#import "Product.h"
+#import "ProductCache.h"
 
 
 @interface PhotoPriceViewController : UIViewController {
-    Product *_product;
+    ProductCache *_product;
     UIImageView *imageView;
 }
 
-@property (nonatomic, retain) Product *product;
+@property (nonatomic, retain) ProductCache *product;
 @property (nonatomic, retain) UIImageView *imageView;
 
 @end

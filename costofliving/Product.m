@@ -7,9 +7,12 @@
 //
 
 #import "Product.h"
+#import "ProductCache.h"
 
 
 @interface Product (Private)
+
+- (void) deleteAllFromDatabase;
 
 + (NSString *) newStringInBase64FromData: (NSData *)data;
 + (NSData *)decodeBase64WithString:(NSString *)strBase64;
@@ -38,24 +41,6 @@
     if (self) {
     }
     return self;
-}
-
-
-#pragma mark - MKAnnotation properties
-- (CLLocationCoordinate2D) coordinate {
-	CLLocationCoordinate2D coord;
-	coord.latitude = self.latitude;
-	coord.longitude = self.longitude;
-	
-	return coord;
-}
-
-- (NSString *) title {
-	return self.name;
-}
-
-- (NSString *)subtitle {
-    return self.address;
 }
 
 
@@ -146,6 +131,9 @@ static const short _base64DecodingTable[256] = {
 }
 
 - (void)refreshFromSerer:(ServerData *)server {
+    NSLog(@"Deleting all products in database");
+    [self deleteAllFromDatabase];
+    
 	NSLog(@"Sendig GET request");
 	[HRRestModel setDelegate:self];
     [HRRestModel setBaseURL:[NSURL URLWithString:server.address]];
@@ -155,25 +143,25 @@ static const short _base64DecodingTable[256] = {
 #pragma mark - HRResponseDelegate methods
 - (void)restConnection:(NSURLConnection *)connection didFailWithError:(NSError *)error object:(id)object {
     NSLog(@"Failure to connect to the server");
-    [self.delegate useProductsList:[NSArray array]];
+    [self.delegate useProductsList];
     [HRRestModel setDelegate:nil];
 }
 
 - (void)restConnection:(NSURLConnection *)connection didReceiveError:(NSError *)error response:(NSHTTPURLResponse *)response object:(id)object {
     NSLog(@"Invalid response");
-    [self.delegate useProductsList:[NSArray array]];
+    [self.delegate useProductsList];
     [HRRestModel setDelegate:nil];
 }
 
 - (void)restConnection:(NSURLConnection *)connection didReceiveParseError:(NSError *)error responseBody:(NSString *)string {
     NSLog(@"Can't parse the data returned");
-    [self.delegate useProductsList:[NSArray array]];
+    [self.delegate useProductsList];
     [HRRestModel setDelegate:nil];
 }
 
 - (void)restConnection:(NSURLConnection *)connection didReturnResource:(id)resource object:(id)object {
 	NSDictionary *dicProduct = nil;
-	Product *oneProduct = nil;
+	ProductCache *cacheProduct = nil;
 	
     NSString *oneProductId = nil;
 	NSString *oneProductName = nil;
@@ -187,8 +175,7 @@ static const short _base64DecodingTable[256] = {
     
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	if (self.delegate != nil) {
-		NSMutableArray *list = [[[NSMutableArray alloc] init] autorelease];
-		
+        
 		for(id jsonNote in resource) {
             
 			if (![jsonNote respondsToSelector:@selector(objectForKey:)]) {
@@ -204,56 +191,84 @@ static const short _base64DecodingTable[256] = {
                     
                     NSLog(@"Product received");
                     
-					oneProduct = [[[Product alloc] init] autorelease];
+                    /*
+                     Create a new instance of the Event entity.
+                     */
+                    cacheProduct = (ProductCache *)[NSEntityDescription insertNewObjectForEntityForName:@"ProductCache"
+                                                                                 inManagedObjectContext:self.delegate.managedObjectContext];
+                    
                     
                     oneProductId = [dicProduct objectForKey:@"id"];
                     if (oneProductId) {
-                        oneProduct.idProduct = oneProductId.integerValue;
+                        cacheProduct.idProduct = [NSNumber numberWithInteger:oneProductId.integerValue];
                     }
                     
 					oneProductName = [dicProduct objectForKey:@"name"];
 					if (oneProductName) {
-						oneProduct.name = oneProductName;
+						cacheProduct.name = oneProductName;
 					}
                     
                     oneProductPrice = [dicProduct objectForKey:@"price"];
                     if (oneProductPrice) {
-                        oneProduct.price = oneProductPrice.integerValue;
+                        cacheProduct.price = [NSNumber numberWithInteger:oneProductPrice.integerValue];
                     }
                     
                     oneProductImage = [dicProduct objectForKey:@"imageAsStr"];
-                    if (oneProductImage) {
-                        oneProduct.image = [UIImage imageWithData:[Product decodeBase64WithString:oneProductImage]];
+                    if (oneProductImage && [oneProductImage length] > 0) {
+                        cacheProduct.image = [Product decodeBase64WithString:oneProductImage];
                     }
                     
                     oneProductLatitude = [dicProduct objectForKey:@"latitude"];
                     if (oneProductLatitude) {
-                        oneProduct.latitude = oneProductLatitude.doubleValue;
+                        cacheProduct.latitude = [NSNumber numberWithDouble:oneProductLatitude.doubleValue];
                     }
                     
                     oneProductLongitude = [dicProduct objectForKey:@"longitude"];
                     if (oneProductLongitude) {
-                        oneProduct.longitude = oneProductLongitude.doubleValue;
+                        cacheProduct.longitude = [NSNumber numberWithDouble:oneProductLongitude.doubleValue];
                     }
                     
                     oneProductAddress = [dicProduct objectForKey:@"address"];
                     if (oneProductAddress && (oneProductAddress != (NSString *)[NSNull null])) {
-                        oneProduct.address = oneProductAddress;
+                        cacheProduct.address = oneProductAddress;
                     }
-                    
-					[list addObject:oneProduct];
                     
 				}
                 
 			}
             
 		}
+
+        NSError *error;
+        if (![self.delegate.managedObjectContext save:&error]) {
+            NSLog(@"Error saving data downloaded from server <%@>", error);
+        }
         
-        [self.delegate useProductsList:list];
+        [self.delegate useProductsList];
 	}
     [pool release];
     
     [HRRestModel setDelegate:nil];
+}
+
+
+#pragma mark - Private methods
+- (void) deleteAllFromDatabase {
+    NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease];
+	NSEntityDescription *productDescription = [NSEntityDescription entityForName:@"ProductCache"
+                                                          inManagedObjectContext:self.delegate.managedObjectContext];
+	[request setEntity:productDescription];
+    
+	NSArray *fetchResults = [self.delegate.managedObjectContext executeFetchRequest:request error:nil];
+	
+    for (ProductCache *cacheProduct in fetchResults) {
+        [self.delegate.managedObjectContext deleteObject:cacheProduct];
+    }
+    
+    NSError *error;
+    if (![self.delegate.managedObjectContext save:&error]) {
+        NSLog(@"Error deleting all products from database <%@>", error);
+    }
 }
 
 
