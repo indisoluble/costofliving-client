@@ -8,16 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import <CoreData/CoreData.h>
 
 
 @interface PhotoMapViewController : UIViewController {
     MKMapView *_mapView;
     
-    NSArray *_products;
+    id products;
 }
 
 @property (nonatomic, retain) IBOutlet MKMapView *mapView;
 
-@property (nonatomic, retain) NSArray *products;
+@property (nonatomic, retain) id products;
 
 @end

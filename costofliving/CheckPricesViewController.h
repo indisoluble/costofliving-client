@@ -15,7 +15,7 @@
 
 @interface CheckPricesViewController : UITableViewController <ProductProtocol> {
     Product *_product;
-    NSMutableArray *_productList;
+    NSFetchedResultsController *_productList;
     
     NSManagedObjectContext *_managedObjectContext;
     
@@ -23,7 +23,7 @@
 }
 
 @property (nonatomic, retain) Product *product;
-@property (nonatomic, retain) NSMutableArray *productList;
+@property (nonatomic, retain) NSFetchedResultsController *productList;
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;;
 

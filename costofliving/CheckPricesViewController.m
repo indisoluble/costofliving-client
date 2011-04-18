@@ -132,12 +132,12 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    return [[self.productList sections] count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.productList count];
+    return [[[self.productList sections] objectAtIndex:section] numberOfObjects];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -150,7 +150,7 @@
     }
     
     // Configure the cell...
-    ProductCache *oneProduct = [self.productList objectAtIndex:indexPath.row];
+    ProductCache *oneProduct = [self.productList objectAtIndexPath:indexPath];
 	if (oneProduct) {
         //cell.imageView.image = oneProduct.image;
         
@@ -174,28 +174,23 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        ProductCache *cacheProduct = [self.productList objectAtIndex:indexPath.row];
+        ProductCache *cacheProduct = [self.productList objectAtIndexPath:indexPath];
         if (cacheProduct) {
             // Delete from the server
             Product *remoteProduct = [[[Product alloc] init] autorelease];
             remoteProduct.idProduct = cacheProduct.idProduct.integerValue;
             [remoteProduct deleteRemoteFromServer:[self.delegate actualServer]];
-            
+                        
             // Delete from the database
             [self.managedObjectContext deleteObject:cacheProduct];
-            
-            // Delete from the list
-            [self.productList removeObjectAtIndex:indexPath.row];
-            
-            // Delete the row from the view
-            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
             
             // Commit the change.
             NSError *error;
             if (![self.managedObjectContext save:&error]) {
                 NSLog(@"Error deleting product from database <%@>", error);
             }
-
+            
+            [self loadProductList];
         }
     }   
 }
@@ -222,7 +217,7 @@
 {
     // Navigation logic may go here. Create and push another view controller.
     PhotoPriceViewController *detailViewController = [[PhotoPriceViewController alloc] initWithNibName:@"PhotoPriceViewController" bundle:nil];
-    detailViewController.product = [self.productList objectAtIndex:indexPath.row];
+    detailViewController.product = [self.productList objectAtIndexPath:indexPath];
     
     // Pass the selected object to the new view controller.
     [self.navigationController pushViewController:detailViewController animated:YES];
@@ -247,30 +242,28 @@
 - (void)loadProductList
 {
     NSLog(@"Loading product list");
-    /*
-	 Fetch existing products.
-	 Create a fetch request; find the ProductCache entity and assign it to the request; add a sort descriptor; then execute the fetch.
-	 */
-	NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease];
-	NSEntityDescription *productDescription = [NSEntityDescription entityForName:@"ProductCache"
+    
+    NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease];
+    
+    NSEntityDescription *productDescription = [NSEntityDescription entityForName:@"ProductCache"
                                                           inManagedObjectContext:self.managedObjectContext];
 	[request setEntity:productDescription];
-	
-	// Order the events by creation date, most recent first.
-	NSSortDescriptor *sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES] autorelease];
-	NSArray *sortDescriptors = [[[NSArray alloc] initWithObjects:sortDescriptor, nil] autorelease];
-	[request setSortDescriptors:sortDescriptors];
-	
-	// Execute the fetch -- create a mutable copy of the result.
-	NSError *error = nil;
-	NSMutableArray *mutableFetchResults = [[[self.managedObjectContext executeFetchRequest:request error:&error] mutableCopy] autorelease];
-	if (mutableFetchResults == nil) {
-        NSLog(@"Error fetching data <%@>", error);
-        mutableFetchResults = [NSArray array];
-	}
-	
-	// Set self's events array to the mutable array, then clean up.
-    self.productList = mutableFetchResults;
+    
+    NSSortDescriptor *sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES] autorelease];
+    NSArray *sortDescriptors = [[[NSArray alloc] initWithObjects:sortDescriptor, nil] autorelease];
+    [request setSortDescriptors:sortDescriptors];
+    
+    self.productList = [[[NSFetchedResultsController alloc] initWithFetchRequest:request
+                                                            managedObjectContext:self.managedObjectContext
+                                                              sectionNameKeyPath:nil
+                                                                       cacheName:@"ProductCache"] autorelease];
+    
+    NSError *error;
+    if (![self.productList performFetch:&error]) {
+        NSLog(@"Error performing fetch <%@>", error);
+        self.productList = nil;
+    }
+    
     [self.tableView reloadData];
 }
 

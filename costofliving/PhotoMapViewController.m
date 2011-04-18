@@ -57,13 +57,23 @@
     
     // Do any additional setup after loading the view from its nib.
     if (self.products) {
-        for (ProductCache *oneProduct in self.products) {
-            if (oneProduct.image) {
-                // If it has an image, the coordinates are correct
-                [self.mapView addAnnotation:oneProduct];
-            }
+        
+        if ([self.products isMemberOfClass: [ProductCache class]]) {
+            [self.mapView addAnnotation:self.products];
         }
-    }    
+        else {
+            id <NSFetchedResultsSectionInfo> sectionInfo;
+            for (NSInteger i = 0; i < [[self.products sections] count]; i++) {
+                sectionInfo = [[self.products sections] objectAtIndex:i];
+                for (ProductCache *oneProduct in sectionInfo.objects) {
+                    if (oneProduct.image) {
+                        // If it has an image, the coordinates are correct
+                        [self.mapView addAnnotation:oneProduct];
+                    }
+                }
+            }
+        } 
+    }
 }
 
 - (void)viewDidUnload
