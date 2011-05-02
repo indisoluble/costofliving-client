@@ -114,6 +114,7 @@ static const short _base64DecodingTable[256] = {
         NSDictionary *options = [NSDictionary dictionaryWithObject:[params JSONRepresentation] forKey:@"body"];
         
         NSLog(@"Uploading ...");
+        [HRRestModel setDelegate:self];
         [HRRestModel setBaseURL:[NSURL URLWithString:server.address]];
         [HRRestModel postPath:@"/products.json" withOptions: options object:nil];
         NSLog(@"Ended");
@@ -158,6 +159,13 @@ static const short _base64DecodingTable[256] = {
     [HRRestModel setDelegate:nil];
 }
 
+/*
+- (void)restConnection:(NSURLConnection *)connection didReceiveResponse:(NSHTTPURLResponse *)response object:(id)object {
+    NSLog(@"Response <<%@>>", [response allHeaderFields]);
+    [HRRestModel setDelegate:nil];
+}
+ */
+
 - (void)restConnection:(NSURLConnection *)connection didReturnResource:(id)resource object:(id)object {
 	NSDictionary *dicProduct = nil;
 	ProductCache *cacheProduct = nil;
@@ -170,7 +178,8 @@ static const short _base64DecodingTable[256] = {
     NSString *oneProductLongitude = nil;
     NSString *oneProductAddress = nil;
     
-	NSLog(@"Request received");
+	//NSLog(@"Request received <<%@>>", resource);
+    NSLog(@"Request received");
     
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	if (self.delegate != nil) {

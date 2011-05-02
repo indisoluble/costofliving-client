@@ -10,6 +10,7 @@
 #import <CoreLocation/CoreLocation.h>
 
 #import "ActualServerProtocol.h"
+#import "Product.h"
 
 
 @interface CreateNoteViewController : UIViewController <UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, CLLocationManagerDelegate> {
@@ -19,6 +20,8 @@
     
     CLLocationManager *_locationManager;
     CLLocation *_actualLocation;
+    
+    Product *_product;
 
     id<ActualServerProtocol> _delegate;
 }
@@ -29,6 +32,8 @@
 
 @property (nonatomic, retain) CLLocationManager *locationManager;
 @property (nonatomic, retain) CLLocation *actualLocation;
+
+@property (nonatomic, retain) Product *product;
 
 @property (nonatomic, assign) id<ActualServerProtocol> delegate;
 

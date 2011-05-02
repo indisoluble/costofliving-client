@@ -37,6 +37,8 @@
 @synthesize locationManager = _locationManager;
 @synthesize actualLocation = _actualLocation;
 
+@synthesize product = _product;
+
 @synthesize delegate = _delegate;
 
 
@@ -49,6 +51,8 @@
                                                          image:[UIImage imageNamed:@"167-upload-photo.png"]
                                                            tag:0] autorelease];
         self.title = @"Self";
+        
+        self.product = [[[Product alloc] init] autorelease];
     }
     return self;
 }
@@ -62,6 +66,8 @@
     self.imageView = nil;
     
     self.locationManager = nil;
+    
+    self.product = nil;
     
     [super dealloc];
 }
@@ -181,13 +187,22 @@
 
 - (IBAction) saveProduct
 {
-    Product *oneProduct = [[[Product alloc] init] autorelease];
-	oneProduct.name = self.name.text;
-	oneProduct.price = self.price.text.integerValue;
-    oneProduct.image = self.imageView.image;
-    oneProduct.latitude = self.actualLocation.coordinate.latitude;
-    oneProduct.longitude = self.actualLocation.coordinate.longitude;
-	[oneProduct saveRemoteToServer:[self.delegate actualServer]];
+    /*
+     Product *oneProduct = [[[Product alloc] init] autorelease];
+     oneProduct.name = self.name.text;
+     oneProduct.price = self.price.text.integerValue;
+     oneProduct.image = self.imageView.image;
+     oneProduct.latitude = self.actualLocation.coordinate.latitude;
+     oneProduct.longitude = self.actualLocation.coordinate.longitude;
+     [oneProduct saveRemoteToServer:[self.delegate actualServer]];
+     */
+    
+	self.product.name = self.name.text;
+	self.product.price = self.price.text.integerValue;
+    self.product.image = self.imageView.image;
+    self.product.latitude = self.actualLocation.coordinate.latitude;
+    self.product.longitude = self.actualLocation.coordinate.longitude;
+	[self.product saveRemoteToServer:[self.delegate actualServer]];    
     
     self.name.text = nil;
     self.price.text = nil;
