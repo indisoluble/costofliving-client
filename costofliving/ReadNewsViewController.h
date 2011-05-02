@@ -11,16 +11,14 @@
 
 @interface ReadNewsViewController : UITableViewController <MWFeedParserDelegate> {
     MWFeedParser *_feedParser;
+    
     NSMutableArray *_parsedItems;
     NSArray *_itemsToDisplay;
-    
     NSDateFormatter *_dateFormatter;
+    
+    NSString *_original_title;
 }
 
-@property (nonatomic, retain) MWFeedParser *feedParser;
-@property (nonatomic, retain) NSMutableArray *parsedItems;
-@property (nonatomic, retain) NSArray *itemsToDisplay;
-
-@property (nonatomic, retain) NSDateFormatter *dateFormatter;
+- (void) useFeedURL:(NSURL *)feedURL;
 
 @end

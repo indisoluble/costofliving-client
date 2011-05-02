@@ -7,7 +7,24 @@
 //
 
 #import "costoflivingAppDelegate.h"
-#import "ReadNewsViewController.h"
+#import "ConnectionDataForFeeds.h"
+#import "ConnectionDataForPrices.h"
+
+
+
+@interface costoflivingAppDelegate ()
+
+#pragma mark - Properties
+@property (nonatomic, retain) ReadNewsViewController *readNewsViewController;
+@property (nonatomic, retain) ConfParametersViewController *confParametersViewController;
+@property (nonatomic, retain) UITabBarController *tabBarController;
+
+
+#pragma mark - Private methods
+- (void) reloadParameters;
+
+@end
+
 
 
 @implementation costoflivingAppDelegate
@@ -15,6 +32,9 @@
 
 #pragma mark - Synthesized properties
 @synthesize window = _window;
+
+@synthesize readNewsViewController = _readNewsViewController;
+@synthesize confParametersViewController = _confParametersViewController;
 @synthesize tabBarController = _taBarController;
 
 
@@ -34,12 +54,24 @@
     
     // Tab to read news
     UINavigationController *readNewsNavController = [[[UINavigationController alloc] init] autorelease];
-    ReadNewsViewController *readNewsViewController = [[[ReadNewsViewController alloc] initWithStyle:UITableViewStylePlain] autorelease];
-    [readNewsNavController pushViewController:readNewsViewController animated:NO];
+    self.readNewsViewController = [[[ReadNewsViewController alloc] initWithStyle:UITableViewStylePlain] autorelease];
+    [readNewsNavController pushViewController:self.readNewsViewController animated:NO];
+    
+    // Tab for configuration parameters
+    UINavigationController *confParametersNavController = [[[UINavigationController alloc] init] autorelease];
+    self.confParametersViewController = [[[ConfParametersViewController alloc] initWithStyle:UITableViewStyleGrouped] autorelease];
+    self.confParametersViewController.delegate = self;
+    [confParametersNavController pushViewController:self.confParametersViewController animated:NO];
     
     // Adds tabs to tabBarController
-    NSArray *viewControllers = [NSArray arrayWithObjects:createNotesNavController, checkPricesNavController, readNewsNavController, nil];
+    NSArray *viewControllers = [NSArray arrayWithObjects:
+                                createNotesNavController, checkPricesNavController,
+                                readNewsNavController, confParametersNavController,
+                                nil];
     self.tabBarController.viewControllers = viewControllers;
+    
+    // Update views before show them
+    [self reloadParameters];
     
     // Show tabs
     [self.window addSubview:self.tabBarController.view];
@@ -91,10 +123,34 @@
 #pragma mark - Memory management
 - (void)dealloc
 {
+    self.readNewsViewController = nil;
+    self.confParametersViewController = nil;
     self.tabBarController = nil;
     
     [_window release];
     [super dealloc];
+}
+
+
+#pragma mark - ConfParametersDelegate methods
+- (void)parameterChanged:(id)newValue {
+    if ([newValue isMemberOfClass:[ConnectionDataForFeeds class]]) {
+        [self.readNewsViewController useFeedURL:[(ConnectionDataForFeeds *)newValue feedURL]];
+    }
+    else if ([newValue isMemberOfClass:[ConnectionDataForPrices class]]) {
+        NSLog(@"Tab for prices not developed, new value <<%@>> can't be assigned", newValue);
+    }
+    else {
+        NSLog(@"This value can't be associated to a specific class <<%@>>", newValue);
+    }
+}
+
+#pragma mark - Private methods
+- (void) reloadParameters {
+    NSArray *parameters = [self.confParametersViewController parameters];
+    for (id param in parameters) {
+        [self parameterChanged:param];
+    }
 }
 
 @end

@@ -11,21 +11,39 @@
 #import "NSString+HTML.h"
 
 
-@interface ReadNewsViewController (Private)
 
-- (void) refreshItems;
+@interface ReadNewsViewController ()
+
+
+#pragma mark - Properties
+@property (nonatomic, retain) MWFeedParser *feedParser;
+
+@property (nonatomic, retain) NSMutableArray *parsedItems;
+@property (nonatomic, retain) NSArray *itemsToDisplay;
+@property (nonatomic, retain) NSDateFormatter *dateFormatter;
+
+@property (nonatomic, retain) NSString *original_title;
+
+
+#pragma mark - Methods
+- (MWFeedParser *)setupNewParserWithFeedURL:(NSURL *)feedURL;
+- (void) reloadsItems;
 
 @end
 
 
+
 @implementation ReadNewsViewController
+
 
 #pragma mark - Synthesized methods
 @synthesize feedParser = _feedParser;
+
 @synthesize parsedItems = _parsedItems;
 @synthesize itemsToDisplay = _itemsToDisplay;
-
 @synthesize dateFormatter = _dateFormatter;
+
+@synthesize original_title = _original_title;
 
 
 #pragma mark - Init object
@@ -33,13 +51,8 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Setup parser
-        NSURL *feedURL = [NSURL URLWithString:@"feed://web.me.com/indisoluble/Test/Blog/rss.xml"];
-        
-        self.feedParser = [[[MWFeedParser alloc] initWithFeedURL:feedURL] autorelease];
-        self.feedParser.delegate = self;
-        self.feedParser.feedParseType = ParseTypeFull; // Parse feed info and all items
-        self.feedParser.connectionType = ConnectionTypeAsynchronously;
+        // Initialize parser to nil
+        self.feedParser = nil;
         
         // Setup list of items
         self.parsedItems = [NSMutableArray array];
@@ -50,8 +63,12 @@
         [self.dateFormatter setDateStyle:NSDateFormatterShortStyle];
         [self.dateFormatter setTimeStyle:NSDateFormatterShortStyle];
         
-        // Set title
+        // Set title before any parse operation
         self.title = @"News";
+        self.original_title = self.title;
+        self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:self.original_title
+                                                         image:[UIImage imageNamed:@"96-book.png"]
+                                                           tag:0] autorelease];
     }
     return self;
 }
@@ -60,11 +77,14 @@
 #pragma mark - Memory management
 - (void)dealloc
 {
+    [self.feedParser stopParsing];
     self.feedParser = nil;
+     
     self.parsedItems = nil;
     self.itemsToDisplay = nil;
-    
     self.dateFormatter = nil;
+    
+    self.original_title = nil;
     
     [super dealloc];
 }
@@ -85,11 +105,12 @@
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
- 
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh 
-																							target:self 
-																							action:@selector(refreshItems)] autorelease];    
-    [self refreshItems];
+    
+    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
+																							target:self
+																							action:@selector(reloadsItems)] autorelease];
+    
+    [self reloadsItems];
 }
 
 - (void)viewDidUnload
@@ -249,7 +270,7 @@
 						   [NSArray arrayWithObject:[[[NSSortDescriptor alloc] initWithKey:@"date" 
 																				 ascending:NO] autorelease]]];
     
-    self.title = @"News";
+    self.title = self.original_title;
 	self.tableView.userInteractionEnabled = YES;
 	self.tableView.alpha = 1;
 	[self.tableView reloadData];
@@ -262,17 +283,48 @@
 	self.itemsToDisplay = [NSArray array];
 	[self.parsedItems removeAllObjects];
     
-    self.title = @"News";
+    self.title = self.original_title;
 	self.tableView.userInteractionEnabled = YES;
 	self.tableView.alpha = 1;
 	[self.tableView reloadData];
 }
 
 
-#pragma mark - Private methods
-- (void) refreshItems
+#pragma mark - Public methods
+- (void) useFeedURL:(NSURL *)feedURL
 {
-    self.title = @"Refreshing...";
+    NSLog(@"Assigned new feed URL: <<%@>>", feedURL);
+    
+    if (self.feedParser) {
+        // Stop parse before replace to not receive more info from the previous parser
+        [self.feedParser stopParsing];
+    }
+    
+    self.feedParser = [self setupNewParserWithFeedURL:feedURL];
+    
+    [self reloadsItems];
+}
+
+
+#pragma mark - Private methods
+- (MWFeedParser *)setupNewParserWithFeedURL:(NSURL *)feedURL
+{
+    MWFeedParser *parser = [[MWFeedParser alloc] initWithFeedURL:feedURL];
+    parser.delegate = self;
+    parser.feedParseType = ParseTypeFull; // Parse feed info and all items
+    parser.connectionType = ConnectionTypeAsynchronously;
+    
+    return [parser autorelease];
+}
+
+- (void) reloadsItems
+{
+    if (!self.feedParser) {
+        NSLog(@"There's not parser to read feeds");
+        return;
+    }
+    
+    self.title = @"Reloading...";
     self.tableView.userInteractionEnabled = NO;
 	self.tableView.alpha = 0.3;
     

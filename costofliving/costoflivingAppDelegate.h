@@ -8,12 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface costoflivingAppDelegate : NSObject <UIApplicationDelegate> {
+#import "ReadNewsViewController.h"
+#import "ConfParametersViewController.h"
+
+
+
+@interface costoflivingAppDelegate : NSObject <UIApplicationDelegate, ConfParametersDelegate> {
+    ReadNewsViewController *_readNewsViewController;
+    ConfParametersViewController *_confParametersViewController;
     UITabBarController *_tabBarController;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
-
-@property (nonatomic, retain) UITabBarController *tabBarController;
 
 @end
