@@ -9,12 +9,17 @@
 #import "costoflivingAppDelegate.h"
 #import "ConnectionDataForFeeds.h"
 #import "ConnectionDataForPrices.h"
+#import "TagsViewController.h"
 
 
 
 @interface costoflivingAppDelegate ()
 
 #pragma mark - Properties
+@property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
+@property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+@property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
+
 @property (nonatomic, retain) ReadNewsViewController *readNewsViewController;
 @property (nonatomic, retain) ConfParametersViewController *confParametersViewController;
 @property (nonatomic, retain) UITabBarController *tabBarController;
@@ -46,7 +51,9 @@
     
     // Tab to create and list own notes
     UINavigationController *createNotesNavController = [[[UINavigationController alloc] init] autorelease];
-    createNotesNavController.title = @"Self";
+    TagsViewController *tagsViewController = [[[TagsViewController alloc] initWithStyle:UITableViewStylePlain
+                                                                andManagedObjectContext:self.managedObjectContext] autorelease];
+    [createNotesNavController pushViewController:tagsViewController animated:NO];
     
     // Tab to check prices
     UINavigationController *checkPricesNavController = [[[UINavigationController alloc] init] autorelease];
@@ -127,6 +134,10 @@
     self.confParametersViewController = nil;
     self.tabBarController = nil;
     
+    [_managedObjectContext release];
+    [_persistentStoreCoordinator release];
+    [_managedObjectContext release];
+    
     [_window release];
     [super dealloc];
 }
@@ -146,11 +157,79 @@
 }
 
 #pragma mark - Private methods
+#pragma mark - Reload parameters
 - (void) reloadParameters {
     NSArray *parameters = [self.confParametersViewController parameters];
     for (id param in parameters) {
         [self parameterChanged:param];
     }
 }
+
+
+#pragma mark - Application's documents directory
+/**
+ Returns the path to the application's documents directory.
+ */
+- (NSString *)applicationDocumentsDirectory {
+	
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
+    return basePath;
+}
+
+
+#pragma mark - Core Data stack
+/**
+ Returns the managed object model for the application.
+ If the model doesn't already exist, it is created by merging all of the models found in the application bundle.
+ */
+- (NSManagedObjectModel *)managedObjectModel {
+	
+    if (_managedObjectModel != nil) {
+        return _managedObjectModel;
+    }
+    _managedObjectModel = [[NSManagedObjectModel mergedModelFromBundles:nil] retain];    
+    return _managedObjectModel;
+}
+
+/**
+ Returns the persistent store coordinator for the application.
+ If the coordinator doesn't already exist, it is created and the application's store added to it.
+ */
+- (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
+	
+    if (_persistentStoreCoordinator != nil) {
+        return _persistentStoreCoordinator;
+    }
+	
+    NSURL *storeUrl = [NSURL fileURLWithPath: [[self applicationDocumentsDirectory] stringByAppendingPathComponent: @"costofliving-Model.sqlite"]];
+	
+	NSError *error;
+    _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: [self managedObjectModel]];
+    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeUrl options:nil error:&error]) {
+        NSLog(@"Error while creating persistent store coordinator. No access to database");
+    }    
+	
+    return _persistentStoreCoordinator;
+}
+
+/**
+ Returns the managed object context for the application.
+ If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
+ */
+- (NSManagedObjectContext *) managedObjectContext {
+	
+    if (_managedObjectContext != nil) {
+        return _managedObjectContext;
+    }
+	
+    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
+    if (coordinator != nil) {
+        _managedObjectContext = [[NSManagedObjectContext alloc] init];
+        [_managedObjectContext setPersistentStoreCoordinator: coordinator];
+    }
+    return _managedObjectContext;
+}
+
 
 @end

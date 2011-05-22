@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
 
 #import "ReadNewsViewController.h"
 #import "ConfParametersViewController.h"
@@ -14,6 +15,10 @@
 
 
 @interface costoflivingAppDelegate : NSObject <UIApplicationDelegate, ConfParametersDelegate> {
+    NSPersistentStoreCoordinator *_persistentStoreCoordinator;
+    NSManagedObjectModel *_managedObjectModel;
+    NSManagedObjectContext *_managedObjectContext;
+    
     ReadNewsViewController *_readNewsViewController;
     ConfParametersViewController *_confParametersViewController;
     UITabBarController *_tabBarController;

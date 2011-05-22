@@ -50,6 +50,10 @@
 		FF62CF60136F18B400019759 /* costofliving-Configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = FF62CF5F136F18B400019759 /* costofliving-Configuration.plist */; };
 		FF62CF63136F244A00019759 /* ConnectionDataForFeeds.m in Sources */ = {isa = PBXBuildFile; fileRef = FF62CF62136F244A00019759 /* ConnectionDataForFeeds.m */; };
 		FF62CF66136F24B000019759 /* ConnectionDataForPrices.m in Sources */ = {isa = PBXBuildFile; fileRef = FF62CF65136F24AF00019759 /* ConnectionDataForPrices.m */; };
+		FF677538137B3BCE008734DF /* costofliving-Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FF677536137B3BCE008734DF /* costofliving-Model.xcdatamodeld */; };
+		FF7DF4771383120500677454 /* TagModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FF7DF4761383120500677454 /* TagModel.m */; };
+		FF7DF47B1383147C00677454 /* TagsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF7DF47A1383147C00677454 /* TagsViewController.m */; };
+		FF7DF47D138315C300677454 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF7DF47C138315C300677454 /* CoreData.framework */; };
 		FFC69081133F714600D91EBE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFC69080133F714600D91EBE /* UIKit.framework */; };
 		FFC69083133F714600D91EBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFC69082133F714600D91EBE /* Foundation.framework */; };
 		FFC69085133F714600D91EBE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFC69084133F714600D91EBE /* CoreGraphics.framework */; };
@@ -150,6 +154,12 @@
 		FF62CF64136F24AF00019759 /* ConnectionDataForPrices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionDataForPrices.h; sourceTree = "<group>"; };
 		FF62CF65136F24AF00019759 /* ConnectionDataForPrices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionDataForPrices.m; sourceTree = "<group>"; };
 		FF62CF67136F254000019759 /* ConfParameterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfParameterProtocol.h; sourceTree = "<group>"; };
+		FF677537137B3BCE008734DF /* costofliving-Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "costofliving-Model.xcdatamodel"; sourceTree = "<group>"; };
+		FF7DF4751383120500677454 /* TagModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagModel.h; sourceTree = "<group>"; };
+		FF7DF4761383120500677454 /* TagModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagModel.m; sourceTree = "<group>"; };
+		FF7DF4791383147C00677454 /* TagsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagsViewController.h; sourceTree = "<group>"; };
+		FF7DF47A1383147C00677454 /* TagsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagsViewController.m; sourceTree = "<group>"; };
+		FF7DF47C138315C300677454 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		FFC6907C133F714600D91EBE /* costofliving.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = costofliving.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFC69080133F714600D91EBE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FFC69082133F714600D91EBE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -168,6 +178,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF7DF47D138315C300677454 /* CoreData.framework in Frameworks */,
 				FF273FBE1379EAC7004355BD /* libxml2.2.dylib in Frameworks */,
 				FFC69081133F714600D91EBE /* UIKit.framework in Frameworks */,
 				FFC69083133F714600D91EBE /* Foundation.framework in Frameworks */,
@@ -405,6 +416,7 @@
 		FFC6907F133F714600D91EBE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FF7DF47C138315C300677454 /* CoreData.framework */,
 				FFC69084133F714600D91EBE /* CoreGraphics.framework */,
 				FFC69082133F714600D91EBE /* Foundation.framework */,
 				FF273FBD1379EAC7004355BD /* libxml2.2.dylib */,
@@ -432,6 +444,10 @@
 				FFC69092133F714700D91EBE /* MainWindow.xib */,
 				FF574155133F773600E0735C /* ReadNewsViewController.h */,
 				FF574156133F773600E0735C /* ReadNewsViewController.m */,
+				FF7DF4751383120500677454 /* TagModel.h */,
+				FF7DF4761383120500677454 /* TagModel.m */,
+				FF7DF4791383147C00677454 /* TagsViewController.h */,
+				FF7DF47A1383147C00677454 /* TagsViewController.m */,
 			);
 			path = costofliving;
 			sourceTree = "<group>";
@@ -445,6 +461,7 @@
 				FFC6908C133F714600D91EBE /* costofliving-Prefix.pch */,
 				FFC69089133F714600D91EBE /* InfoPlist.strings */,
 				FFC6908D133F714600D91EBE /* main.m */,
+				FF677536137B3BCE008734DF /* costofliving-Model.xcdatamodeld */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -555,6 +572,9 @@
 				FF273FB71379EA95004355BD /* NSObject+SBJSON.m in Sources */,
 				FF273FB81379EA95004355BD /* NSString+SBJSON.m in Sources */,
 				FF273FB91379EA95004355BD /* SBJSON.m in Sources */,
+				FF677538137B3BCE008734DF /* costofliving-Model.xcdatamodeld in Sources */,
+				FF7DF4771383120500677454 /* TagModel.m in Sources */,
+				FF7DF47B1383147C00677454 /* TagsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -672,6 +692,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FF677536137B3BCE008734DF /* costofliving-Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FF677537137B3BCE008734DF /* costofliving-Model.xcdatamodel */,
+			);
+			currentVersion = FF677537137B3BCE008734DF /* costofliving-Model.xcdatamodel */;
+			path = "costofliving-Model.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FFC69073133F714600D91EBE /* Project object */;
 }
