@@ -291,16 +291,16 @@
 
 
 #pragma mark - Public methods
-- (void) useFeedURL:(NSURL *)feedURL
+- (void) useConnectionData:(ConnectionDataForFeeds *)connectionData
 {
-    NSLog(@"Assigned new feed URL: <<%@>>", feedURL);
+    NSLog(@"Assigned new URL: <<%@>>", connectionData);
     
     if (self.feedParser) {
         // Stop parse before replace to not receive more info from the previous parser
         [self.feedParser stopParsing];
     }
     
-    self.feedParser = [self setupNewParserWithFeedURL:feedURL];
+    self.feedParser = [self setupNewParserWithFeedURL:[connectionData feedURL]];
     
     [self reloadsItems];
 }

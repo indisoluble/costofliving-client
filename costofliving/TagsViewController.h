@@ -9,20 +9,19 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 
-
-@protocol TagsViewControllerProtocol <NSObject>
-
-- (NSManagedObjectContext *) managedObjectModelForTheApplication;
-
-@end
+#import "ConnectionDataForPrices.h"
+#import "HTTPRiot.h"
 
 
-@interface TagsViewController : UITableViewController {
-    NSFetchedResultsController *_tagsList;
+@interface TagsViewController : UITableViewController <NSFetchedResultsControllerDelegate, HRResponseDelegate> {
     NSManagedObjectContext *_managedObjectContext;
+    NSFetchedResultsController *_tagsList;
+    
+    ConnectionDataForPrices *_connectionData;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style andManagedObjectContext:(NSManagedObjectContext *)managedObjectContext;
-- (void)thereAreNewTags;
+
+- (void) useConnectionData:(ConnectionDataForPrices *)connectionData;
 
 @end

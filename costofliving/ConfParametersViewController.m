@@ -246,7 +246,7 @@
 }
 
 
-#pragma mark - Private methods
+#pragma mark - Public methods
 - (NSArray *)parameters {
     NSMutableArray *values = [[NSMutableArray alloc] initWithCapacity:[self.confParameters count]];
     

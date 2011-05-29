@@ -18,4 +18,6 @@
     BOOL _isSelected;
 }
 
+- (NSURL *)url;
+
 @end

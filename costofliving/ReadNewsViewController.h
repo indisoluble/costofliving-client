@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+
 #import "MWFeedParser.h"
+#import "ConnectionDataForFeeds.h"
 
 @interface ReadNewsViewController : UITableViewController <MWFeedParserDelegate> {
     MWFeedParser *_feedParser;
@@ -19,6 +21,6 @@
     NSString *_original_title;
 }
 
-- (void) useFeedURL:(NSURL *)feedURL;
+- (void) useConnectionData:(ConnectionDataForFeeds *)connectionData;
 
 @end

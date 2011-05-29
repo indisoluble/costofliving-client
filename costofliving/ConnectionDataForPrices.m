@@ -81,4 +81,10 @@
 }
 
 
+#pragma mark - Public methods
+- (NSURL *)url {
+    return [NSURL URLWithString:self.address];
+}
+
+
 @end

@@ -20,6 +20,7 @@
 @property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
 
+@property (nonatomic, retain) TagsViewController *tagsViewController;
 @property (nonatomic, retain) ReadNewsViewController *readNewsViewController;
 @property (nonatomic, retain) ConfParametersViewController *confParametersViewController;
 @property (nonatomic, retain) UITabBarController *tabBarController;
@@ -38,9 +39,10 @@
 #pragma mark - Synthesized properties
 @synthesize window = _window;
 
+@synthesize tagsViewController = _tagsViewController;
 @synthesize readNewsViewController = _readNewsViewController;
 @synthesize confParametersViewController = _confParametersViewController;
-@synthesize tabBarController = _taBarController;
+@synthesize tabBarController = _tabBarController;
 
 
 #pragma mark - UIApplicationDelegate methods
@@ -51,9 +53,9 @@
     
     // Tab to create and list own notes
     UINavigationController *createNotesNavController = [[[UINavigationController alloc] init] autorelease];
-    TagsViewController *tagsViewController = [[[TagsViewController alloc] initWithStyle:UITableViewStylePlain
-                                                                andManagedObjectContext:self.managedObjectContext] autorelease];
-    [createNotesNavController pushViewController:tagsViewController animated:NO];
+    self.tagsViewController = [[[TagsViewController alloc] initWithStyle:UITableViewStylePlain
+                                                 andManagedObjectContext:self.managedObjectContext] autorelease];
+    [createNotesNavController pushViewController:self.tagsViewController animated:NO];
     
     // Tab to check prices
     UINavigationController *checkPricesNavController = [[[UINavigationController alloc] init] autorelease];
@@ -130,6 +132,7 @@
 #pragma mark - Memory management
 - (void)dealloc
 {
+    self.tagsViewController = nil;
     self.readNewsViewController = nil;
     self.confParametersViewController = nil;
     self.tabBarController = nil;
@@ -144,21 +147,24 @@
 
 
 #pragma mark - ConfParametersDelegate methods
-- (void)parameterChanged:(id)newValue {
+- (void)parameterChanged:(id)newValue
+{
     if ([newValue isMemberOfClass:[ConnectionDataForFeeds class]]) {
-        [self.readNewsViewController useFeedURL:[(ConnectionDataForFeeds *)newValue feedURL]];
+        [self.readNewsViewController useConnectionData:(ConnectionDataForFeeds *)newValue];
     }
     else if ([newValue isMemberOfClass:[ConnectionDataForPrices class]]) {
-        NSLog(@"Tab for prices not developed, new value <<%@>> can't be assigned", newValue);
+        [self.tagsViewController useConnectionData:(ConnectionDataForPrices *)newValue];
     }
     else {
         NSLog(@"This value can't be associated to a specific class <<%@>>", newValue);
     }
 }
 
+
 #pragma mark - Private methods
 #pragma mark - Reload parameters
-- (void) reloadParameters {
+- (void) reloadParameters
+{
     NSArray *parameters = [self.confParametersViewController parameters];
     for (id param in parameters) {
         [self parameterChanged:param];
@@ -170,7 +176,8 @@
 /**
  Returns the path to the application's documents directory.
  */
-- (NSString *)applicationDocumentsDirectory {
+- (NSString *)applicationDocumentsDirectory
+{
 	
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
@@ -183,8 +190,8 @@
  Returns the managed object model for the application.
  If the model doesn't already exist, it is created by merging all of the models found in the application bundle.
  */
-- (NSManagedObjectModel *)managedObjectModel {
-	
+- (NSManagedObjectModel *)managedObjectModel
+{	
     if (_managedObjectModel != nil) {
         return _managedObjectModel;
     }
@@ -196,8 +203,8 @@
  Returns the persistent store coordinator for the application.
  If the coordinator doesn't already exist, it is created and the application's store added to it.
  */
-- (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
-	
+- (NSPersistentStoreCoordinator *)persistentStoreCoordinator
+{	
     if (_persistentStoreCoordinator != nil) {
         return _persistentStoreCoordinator;
     }
@@ -217,8 +224,8 @@
  Returns the managed object context for the application.
  If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
  */
-- (NSManagedObjectContext *) managedObjectContext {
-	
+- (NSManagedObjectContext *) managedObjectContext
+{	
     if (_managedObjectContext != nil) {
         return _managedObjectContext;
     }
